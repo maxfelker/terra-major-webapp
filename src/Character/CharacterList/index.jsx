@@ -20,6 +20,7 @@ export default function CharacterList() {
     return (
         <div>
             <h1>Characters</h1>
+            <p><Link to="/characters/new">New Character</Link></p>
             {characters.map((character) => (
                 <div key={character.id}>
                     <Link to={`/characters/${character.id}`}>{character.name}</Link>
