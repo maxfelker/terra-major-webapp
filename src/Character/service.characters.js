@@ -27,3 +27,13 @@ export async function updateCharacter(id, character) {
   });
   return await response.json();
 }
+
+export async function archiveCharacter(id) {
+  const response = await fetch(`${baseUrl}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  });
+  return await response.json();
+}

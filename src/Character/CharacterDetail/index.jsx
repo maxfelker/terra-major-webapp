@@ -1,37 +1,50 @@
 // CharacterEdit.js
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import CharacterForm from '../CharacterForm';
-import { retrieveCharacter, updateCharacter } from '../service.characters';
+import { retrieveCharacter, updateCharacter, archiveCharacter } from '../service.characters';
 
 export default function CharacterDetail() {
   const { id } = useParams();
   const [character, setCharacter] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchData = async () => {
+    async function fetchData() {
       try {
         const data = await retrieveCharacter(id);
         setCharacter(data);
       } catch (error) {
         console.error(error);
       }
-    };
+    }
 
     fetchData();
   }, [id]);
 
-  const handleSuccess = (updatedCharacter) => {
+  function handleSuccess(updatedCharacter){
     setCharacter(updatedCharacter);
-  };
+  }
 
-  const handleSubmit = async (characterData) => {
+  async function handleSubmit(characterData){
     try {
       return await updateCharacter(id, characterData);
     } catch (error) {
       console.error(error);
     }
-  };
+  }
+
+  async function attemptArchive(){
+    const confirmArchive = confirm('Are you sure that you want to archive this character?');
+    if(confirmArchive) {
+      try {
+        await archiveCharacter(id);
+        navigate(`/dashboard`);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
 
   return(
     <>
@@ -40,11 +53,14 @@ export default function CharacterDetail() {
     }
 
     {character &&
+      <>
       <CharacterForm
         initialCharacter={character}
         submitHandler={handleSubmit}
         onSuccess={handleSuccess}
       />
+      <p><button onClick={attemptArchive}>Archive</button></p>
+      </>
     }
     </>
   );
