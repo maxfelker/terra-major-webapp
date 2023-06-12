@@ -6,6 +6,8 @@ import Dashboard from '../Dashboard';
 import UnityWebClient from '../UnityWebClient';
 import AdminDashboard from '../AdminDashboard';
 import SandboxDetail from '../AdminDashboard/SandboxDetail';
+import InstanceDetail from '../AdminDashboard/InstanceDetail';
+import InstanceCreate from '../AdminDashboard/InstanceCreate';
 
 export default function App() {
   return (
@@ -17,7 +19,10 @@ export default function App() {
         <Route path="/characters/:id" element={<CharacterDetail />} />
         <Route path="/characters/new" element={<CharacterCreate />} />
         <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/admin/sandboxes/:id" element={<SandboxDetail />} />
+        <Route path="/admin/sandboxes/:sandboxId" element={<SandboxDetail />} />
+        <Route path="/admin/sandboxes/:sandboxId/instances/new" element={<InstanceCreate />} />
+        <Route path="/admin/sandboxes/:sandboxId/instances/:instanceId" element={<InstanceDetail />} />
+
       </Routes>
     </Router>
   );

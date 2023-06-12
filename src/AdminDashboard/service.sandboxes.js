@@ -37,14 +37,33 @@ export async function retrieveSandbox(sandbox) {
   return await response.json();
 }
 
+export async function retrieveInstance(sandbox, instance) {
+  const url = `${createUrl()}/${sandbox.id}/instances/${instance.id}`;
+  const response = await fetch(url);
+
+  return await response.json();
+}
+
 export async function updateInstance(sandbox, instance) {
   const url = `${createUrl()}/${sandbox.id}/instances/${instance.id}`;
+  delete instance.prefabName;
   const response = await fetch(url, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(instance),
+  });
+  return await response.json();
+}
+
+export async function archiveInstance(sandbox, instance) {
+  const url = `${createUrl()}/${sandbox.id}/instances/${instance.id}`;
+  const response = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    }
   });
   return await response.json();
 }

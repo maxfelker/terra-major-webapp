@@ -8,7 +8,7 @@ InstanceList.propTypes = {
 };
 
 function instanceUrl(instance) {
-  return `/admin/sandboxes/${instance.sandboxId}/instance/${instance.id}`;
+  return `/admin/sandboxes/${instance.sandboxId}/instances/${instance.id}`;
 }
 
 export default function InstanceList(props) {

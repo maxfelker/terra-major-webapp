@@ -4,14 +4,14 @@ import InstanceList from '../InstanceList';
 import { retrieveSandbox, archiveSandbox } from '../service.sandboxes';
 
 export default function SandboxDetail() {
-  const { id } = useParams();
+  const { sandboxId } = useParams();
   const [sandbox, setSandbox] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await retrieveSandbox({id});
+        const response = await retrieveSandbox({id: sandboxId});
         setSandbox(response);
       } catch (error) {
         console.error(error);
@@ -19,7 +19,7 @@ export default function SandboxDetail() {
     }
 
     fetchData();
-  }, [id]);
+  }, [sandboxId]);
 
   async function attemptArchive(){
     const confirmArchive = confirm('Are you sure that you want to archive this sandbox?');
@@ -43,6 +43,7 @@ export default function SandboxDetail() {
       <>
       <h1>Sandbox {sandbox.id}</h1>
       <p>Created Date: {sandbox.created}</p>
+      <Link to={`/admin/sandboxes/${sandbox.id}/instances/new`}>Create New Instance</Link>
       <InstanceList sandbox={sandbox} />
       <p><button onClick={attemptArchive}>Archive</button></p>
       </>

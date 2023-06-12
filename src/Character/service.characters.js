@@ -1,4 +1,4 @@
-const apiURL = import.meta.env.VITE_CHARACTERS_API_URL;
+const apiURL = import.meta.env.VITE_TERRA_MAJOR_API_URL;
 const baseUrl = `${apiURL}/characters`;
 
 export async function createCharacter(character) {

@@ -1,4 +1,3 @@
-// CharacterEdit.js
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import CharacterForm from '../CharacterForm';
