@@ -41,7 +41,7 @@ export default function InstanceDetail() {
     if(confirmArchive) {
       try {
         await archiveInstance(sandbox,instance);
-        navigate(`/dashboard`);
+        navigate(`/admin/sandboxes/${sandbox.id}`);
       } catch (error) {
         console.error(error);
       }

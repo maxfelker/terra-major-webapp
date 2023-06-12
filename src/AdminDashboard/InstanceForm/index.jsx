@@ -26,7 +26,6 @@ export default function InstanceForm({ sandbox, initialInstance, submitHandler, 
       y: 0,
       z: 0
     },
-    health: 100,
     created: null,
     updated: null,
   };
@@ -71,7 +70,7 @@ export default function InstanceForm({ sandbox, initialInstance, submitHandler, 
 
   return (
     <form onSubmit={handleSubmit}>
-      <TextInput name="prefabName" value={instance.prefabName} onChange={handleChange} label="Prefab Name" disabled={initialInstance} />
+      <TextInput name="prefabName" value={instance.prefabName} onChange={handleChange} label="Prefab Name" />
       <NumberInput  
           name="position.x"
           value={instance.position.x} 
@@ -108,7 +107,6 @@ export default function InstanceForm({ sandbox, initialInstance, submitHandler, 
           onChange={handleChange} 
           label="Rotation Z" 
         />
-      <NumberInput name="health" value={instance.health} onChange={handleChange} label="Health" />
       {instance.created &&
         <p>Created: {instance.created} / Last Updated: {instance.updated} </p>
       }

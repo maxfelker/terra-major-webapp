@@ -46,7 +46,6 @@ export async function retrieveInstance(sandbox, instance) {
 
 export async function updateInstance(sandbox, instance) {
   const url = `${createUrl()}/${sandbox.id}/instances/${instance.id}`;
-  delete instance.prefabName;
   const response = await fetch(url, {
     method: 'PATCH',
     headers: {
