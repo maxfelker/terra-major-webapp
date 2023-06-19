@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import TextInput from '../../Character/CharacterForm/TextInput';
-import NumberInput from './NumberInput';
+import Vector3GroupInput from '../../Form/Vector3GroupInput';
 
 InstanceForm.propTypes = {
   sandbox: PropTypes.object.isRequired,
@@ -70,47 +70,15 @@ export default function InstanceForm({ sandbox, initialInstance, submitHandler, 
 
   return (
     <form onSubmit={handleSubmit}>
-      <TextInput name="prefabName" value={instance.prefabName} onChange={handleChange} label="Prefab Name" />
-      <NumberInput  
-          name="position.x"
-          value={instance.position.x} 
-          onChange={handleChange} 
-          label="Position X" 
-        />
-      <NumberInput  
-          name="position.y"
-          value={instance.position.y} 
-          onChange={handleChange} 
-          label="Position Y" 
-        />
-      <NumberInput  
-          name="position.z"
-          value={instance.position.z} 
-          onChange={handleChange} 
-          label="Position Z" 
-        />
-      <NumberInput  
-          name="rotation.x"
-          value={instance.rotation.x} 
-          onChange={handleChange} 
-          label="Rotation X" 
-        />
-      <NumberInput  
-          name="rotation.y"
-          value={instance.rotation.y} 
-          onChange={handleChange} 
-          label="Rotation Y" 
-        />
-      <NumberInput  
-          name="rotation.z"
-          value={instance.rotation.z} 
-          onChange={handleChange} 
-          label="Rotation Z" 
-        />
       {instance.created &&
         <p>Created: {instance.created} / Last Updated: {instance.updated} </p>
       }
-      <button type="submit">Save</button>
+      <TextInput name="prefabName" value={instance.prefabName} onChange={handleChange} label="Prefab Name" />
+      <Vector3GroupInput vector3={instance.position} handleChange={handleChange} name="position" label="Position" />
+      <Vector3GroupInput vector3={instance.rotation} handleChange={handleChange} name="rotation" label="Rotation" />   
+      <p>
+        <button type="submit">Save</button>
+      </p>
     </form>
   );
 }
