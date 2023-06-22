@@ -16,3 +16,14 @@ export async function retrieveAccount(id) {
   const response = await fetch(`${baseUrl}/${id}`);
   return await response.json();
 }
+
+export async function login(account) {
+  const response = await fetch(`${baseUrl}/login`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(account),
+  });
+  return await response.json();
+}

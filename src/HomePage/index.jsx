@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
+import LoginForm from "../Account/LoginForm";
 
 export default function HomePage() {
+  const version = import.meta.env.VITE_BUILD_VERSION;
+
   return (
     <>
-      <h1>Terra Major v0.11</h1>
+      <h1>Terra Major v{version}</h1>
+
+      <LoginForm />
+      
       <p>New users <Link to="/sign-up">create account</Link></p>
-      <p>Return user <Link to="/dashboard">sign in</Link></p>
 
       <p>Terra Major is a free-to-play, cross-platform sci-fi game that allows players to build colonies, gather resources, and challenge other players in a real-time, persistent game world.</p>
 

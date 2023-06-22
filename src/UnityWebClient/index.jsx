@@ -6,7 +6,7 @@ function generatePath(suffix) {
   const version = import.meta.env.VITE_BUILD_VERSION;
   const buildDir = import.meta.env.VITE_BUILD_BASE_URL;
 
-  return `${buildDir}/${version}_web.${suffix}`;
+  return `${buildDir}/${version}.${suffix}`;
 }
 
 function generateConfig() {
