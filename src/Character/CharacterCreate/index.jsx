@@ -1,4 +1,3 @@
-// CharacterCreate.js
 import { useNavigate } from 'react-router-dom';
 import CharacterForm from '../CharacterForm';
 import { createCharacter } from '../service.characters';

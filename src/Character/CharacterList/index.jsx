@@ -1,19 +1,16 @@
 // CharacterList.js
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getCharacters } from '../service.characters';
 
 export default function CharacterList() {
-    const baseUrl = 'http://localhost:8000'
     const [characters, setCharacters] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
-            const url = `${baseUrl}/characters`;
-            const response = await fetch(url);
-            const data = await response.json();
-            setCharacters(data);
+            const response = await getCharacters();
+            setCharacters(response);
         };
-
         fetchData();
     }, []);
 

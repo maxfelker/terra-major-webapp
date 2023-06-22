@@ -37,3 +37,8 @@ export async function archiveCharacter(id) {
   });
   return await response.json();
 }
+
+export async function getCharacters() {
+  const response = await fetch(baseUrl);
+  return await response.json();
+}

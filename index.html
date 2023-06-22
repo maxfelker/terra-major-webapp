@@ -5,6 +5,57 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap');
+      body {
+        background: #000;
+        color:#FFF;
+        font-family: 'Chakra Petch', sans-serif;
+      }
+      a {
+        color:#23d2b7;
+      }
+      a:hover, a:visited:hover {
+        color:#1ae0c1;
+      }
+      a:visited {
+        color:#2bab97;
+      }
+      input {
+        border: 1px solid #2bab97;
+        border-radius:5px;
+        padding:2px;
+        background:none;
+        display: inline-block;
+        margin: 0 0 1rem 0;
+        color:#1ae0c1;
+      }
+      input[type="number"]{
+        max-width: 80px;
+      }
+      input:hover, input:focus {
+        border: 1px solid #1ae0c1;
+        background: none;
+        outline: none;
+      }
+      input:-webkit-autofill {
+          background-color: transparent !important;
+
+      }
+      button {
+        border: 1px solid #2bab97;
+        background: #228f7e;
+        color:#FFF;
+        padding:0.5rem 0.7rem;
+        display: block;
+        margin-top:1rem;
+        border-radius: 5px 0px 10px 5px;
+      }
+      button:hover {
+        cursor: pointer;
+        background-color: #2bab97;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

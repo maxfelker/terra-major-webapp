@@ -8,22 +8,26 @@ import AdminDashboard from '../AdminDashboard';
 import SandboxDetail from '../AdminDashboard/SandboxDetail';
 import InstanceDetail from '../AdminDashboard/InstanceDetail';
 import InstanceCreate from '../AdminDashboard/InstanceCreate';
+import SignUpForm from '../Account/SignUpForm';
+import styles from "./styles.module.css";
 
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="play" element={<UnityWebClient />} />
-        <Route path="/characters/:id" element={<CharacterDetail />} />
-        <Route path="/characters/new" element={<CharacterCreate />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/admin/sandboxes/:sandboxId" element={<SandboxDetail />} />
-        <Route path="/admin/sandboxes/:sandboxId/instances/new" element={<InstanceCreate />} />
-        <Route path="/admin/sandboxes/:sandboxId/instances/:instanceId" element={<InstanceDetail />} />
-
-      </Routes>
-    </Router>
+    <div className={styles.app}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="play" element={<UnityWebClient />} />
+          <Route path="/sign-up" element={<SignUpForm/>} />
+          <Route path="/characters/:id" element={<CharacterDetail />} />
+          <Route path="/characters/new" element={<CharacterCreate />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/sandboxes/:sandboxId" element={<SandboxDetail />} />
+          <Route path="/admin/sandboxes/:sandboxId/instances/new" element={<InstanceCreate />} />
+          <Route path="/admin/sandboxes/:sandboxId/instances/:instanceId" element={<InstanceDetail />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import TextInput from '../../Character/CharacterForm/TextInput';
+import TextInput from '../../Form/TextInput';
 import Vector3GroupInput from '../../Form/Vector3GroupInput';
 
 InstanceForm.propTypes = {

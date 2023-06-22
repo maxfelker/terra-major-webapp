@@ -1,8 +1,8 @@
 // CharacterForm.js
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import TextInput from './TextInput';
-import RangeInput from './RangeInput';
+import TextInput from '../../Form/TextInput';
+import RangeInput from '../../Form/RangeInput';
 
 CharacterForm.propTypes = {
   initialCharacter: PropTypes.object,
