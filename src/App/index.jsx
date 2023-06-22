@@ -8,6 +8,7 @@ import AdminDashboard from '../AdminDashboard';
 import SandboxDetail from '../AdminDashboard/SandboxDetail';
 import InstanceDetail from '../AdminDashboard/InstanceDetail';
 import InstanceCreate from '../AdminDashboard/InstanceCreate';
+import SignUpForm from '../Account/SignUpForm';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="play" element={<UnityWebClient />} />
+        <Route path="/sign-up" element={<SignUpForm/>} />
         <Route path="/characters/:id" element={<CharacterDetail />} />
         <Route path="/characters/new" element={<CharacterCreate />} />
         <Route path="/admin" element={<AdminDashboard />} />
