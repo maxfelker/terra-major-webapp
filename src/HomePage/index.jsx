@@ -8,7 +8,7 @@ export default function HomePage() {
     <>
       <h1>Terra Major v{version}</h1>
 
-      <LoginForm />
+      <p>Returning users <Link to="/login">login</Link></p>
       
       <p>New users <Link to="/sign-up">create account</Link></p>
 
