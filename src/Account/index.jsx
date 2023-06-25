@@ -1,13 +1,10 @@
-import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import CharacterList from "../Character/CharacterList";
 import { retrieveAccount } from '../Account/service.accounts';
+import UpdatePasswordForm from '../Account/UpdatePasswordForm';
 
-export default function Dashboard() {
+export default function Account() {
 
   const [account, setAccount] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const accountId = sessionStorage.getItem('accountId');
@@ -26,16 +23,12 @@ export default function Dashboard() {
     fetchData();
   },[]);
 
-  function signOut() {
-    sessionStorage.clear();
-    navigate('/');
-  }
 
   return (
     <>
-      <h1>Dashboard</h1> - <Link to="/play">Play Now</Link> <Link to="/dashboard/account">My Account</Link>
-      <p>{account && account.email} - <button onClick={signOut}>Sign Out</button></p>
-      <CharacterList />  
+      <h1>Account</h1> 
+      <p>{account && account.email}</p>
+      <UpdatePasswordForm />  
     </>
   )
 }
