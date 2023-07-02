@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import styles from './styles.module.css';
+import { createUnityClientToken } from './service.unity-client';
 
 function generatePath(suffix) {
   const version = import.meta.env.VITE_BUILD_VERSION;
@@ -20,7 +21,7 @@ function generateConfig() {
 
 export default function UnityWebClient() {
   const config = generateConfig();
-  const { unityProvider, loadingProgression, isLoaded } = useUnityContext(config);
+  const { unityProvider, loadingProgression, isLoaded, sendMessage } = useUnityContext(config);
 
   const [devicePixelRatio, setDevicePixelRatio] = useState(
     window.devicePixelRatio
@@ -42,6 +43,19 @@ export default function UnityWebClient() {
     [devicePixelRatio]
   );
 
+  useEffect(() => {
+    const fetchTokenAndPassToUnity = async () => {
+      const response = await createUnityClientToken();
+      if (isLoaded && response.token) {
+          sendMessage("Core", "SetUnityClientJWT", response.token);
+      } else {
+        console.error('Failed to fetch JWT token');
+      }
+    };
+
+    fetchTokenAndPassToUnity();
+  }, [isLoaded, unityProvider, sendMessage]);
+
   return (
     <Fragment>
       {!isLoaded && (
@@ -56,4 +70,3 @@ export default function UnityWebClient() {
     </Fragment>
   );
 }
-
