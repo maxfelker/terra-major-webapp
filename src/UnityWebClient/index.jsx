@@ -11,6 +11,7 @@ function generatePath(suffix) {
 }
 
 function generateConfig() {
+
   return {
     loaderUrl: generatePath('loader.js'),
     dataUrl: generatePath('data'),
@@ -36,6 +37,7 @@ export default function UnityWebClient() {
         `screen and (resolution: ${devicePixelRatio}dppx)`
       );
       mediaMatcher.addEventListener("change", updateDevicePixelRatio);
+
       return function () {
         mediaMatcher.removeEventListener("change", updateDevicePixelRatio);
       };
@@ -44,17 +46,19 @@ export default function UnityWebClient() {
   );
 
   useEffect(() => {
-    const fetchTokenAndPassToUnity = async () => {
-      const response = await createUnityClientToken();
-      if (isLoaded && response.token) {
-          sendMessage("Core", "SetUnityClientJWT", response.token);
-      } else {
-        console.error('Failed to fetch JWT token');
+    const retrieveToken = async () => {
+      const { token } = await createUnityClientToken();
+      if(isLoaded && token) {
+        const baseUrl = import.meta.env.VITE_TERRA_MAJOR_API_URL;
+        const clientConfig = {
+          baseUrl,
+          token
+        }
+        sendMessage("Core", "InitClient", JSON.stringify(clientConfig))
       }
     };
-
-    fetchTokenAndPassToUnity();
-  }, [isLoaded, unityProvider, sendMessage]);
+    retrieveToken();
+  }, [isLoaded, sendMessage]);
 
   return (
     <Fragment>

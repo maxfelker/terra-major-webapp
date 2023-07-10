@@ -19,15 +19,16 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/sign-up" element={<SignUpForm/>} />
           <Route path="/login" element={<LoginForm/>} />
+
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/account" element={<Account />} />
 
-          <Route path="play" element={<UnityWebClient />} />
-          <Route path="/sign-up" element={<SignUpForm/>} />
+          <Route path="/play" element={<UnityWebClient />} />
+
           <Route path="/characters/:id" element={<CharacterDetail />} />
           <Route path="/characters/new" element={<CharacterCreate />} />
-
 
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/sandboxes/:sandboxId" element={<SandboxDetail />} />
