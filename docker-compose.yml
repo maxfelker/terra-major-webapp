@@ -1,0 +1,27 @@
+version: "3.9" 
+
+services:
+
+  dev: 
+    build: 
+      context: .
+      dockerfile: ./Dockerfile.dev
+    environment:
+      VITE_TERRA_MAJOR_API_URL: ${VITE_TERRA_MAJOR_API_URL}
+      VITE_BUILD_BASE_URL:  ${VITE_BUILD_BASE_URL}
+      VITE_BUILD_VERSION: ${VITE_BUILD_VERSION}
+      PORT: 5173
+    ports:
+      - 5173:5173
+    volumes:
+      - ./public:/app/public
+      - ./src:/app/src
+
+  release:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      PORT: 80
+    ports:
+      - 80:80
