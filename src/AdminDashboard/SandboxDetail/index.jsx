@@ -42,6 +42,8 @@ export default function SandboxDetail() {
     {sandbox &&
       <>
       <h1>Sandbox {sandbox.id}</h1>
+      <p>Account: {sandbox.accountId} </p>
+      <p>Character: {sandbox.characterId} </p>
       <p>Created Date: {sandbox.created}</p>
       <Link to={`/admin/sandboxes/${sandbox.id}/instances/new`}>Create New Instance</Link>
       <InstanceList sandbox={sandbox} />

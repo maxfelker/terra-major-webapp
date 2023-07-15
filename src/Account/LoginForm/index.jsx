@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { login } from '../service.accounts';
+import { login, setAccountToken } from '../service.accounts';
 import { TextInput } from "../../Form";
+import { setActiveAccount } from '../../App/service.app';
 
 export default function LoginForm() {
   const navigate = useNavigate();
@@ -15,12 +16,12 @@ export default function LoginForm() {
     }
     event.preventDefault();
     try {
-      const response = await login(payload);
+      const { token, error } = await login(payload);
       
-      if(response.error) {
-        setError(response.error);
+      if(error) {
+        setError(error);
       } else {
-        sessionStorage.setItem('accountId', response.id);
+        setAccountToken(token);
         navigate(`/dashboard`);
       }
      

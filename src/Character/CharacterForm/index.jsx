@@ -3,6 +3,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import TextInput from '../../Form/TextInput';
 import RangeInput from '../../Form/RangeInput';
+import { getActiveAccount } from '../../App/service.app';
 
 CharacterForm.propTypes = {
   initialCharacter: PropTypes.object,
@@ -20,6 +21,7 @@ const defaultCharacter = {
   agility: 5,
   created: null,
   updated: null,
+  accountId: getActiveAccount()
 };
 
 export default function CharacterForm({ initialCharacter, submitHandler, onSuccess }) {

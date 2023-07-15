@@ -20,7 +20,7 @@ export default function SignUpForm() {
       if(response.error) {
         setError(response.error);
       } else {
-        sessionStorage.setItem('accountId', response.id);
+        setActiveAccount(response.id);
         navigate(`/dashboard`);
       }
      

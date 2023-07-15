@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import CharacterList from "../Character/CharacterList";
 import { retrieveAccount } from '../Account/service.accounts';
+import { getActiveAccount } from '../App/service.app';
 
 export default function Dashboard() {
 
@@ -10,7 +11,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const accountId = sessionStorage.getItem('accountId');
+    const accountId = getActiveAccount();
     if(!accountId) {
       console.error("No account id!")
     }

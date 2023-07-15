@@ -47,3 +47,11 @@ export async function updatePassword(accountId, payload) {
   return response;
 }
 
+export function setAccountToken(token) {
+  sessionStorage.setItem('account-token', token);
+}
+
+export function logout(){
+  sessionStorage.clear();
+}
+
