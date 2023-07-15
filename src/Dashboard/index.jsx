@@ -2,8 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import CharacterList from "../Character/CharacterList";
-import { retrieveAccount } from '../Account/service.accounts';
-import { getActiveAccount } from '../App/service.app';
+import { getMyAccount } from '../Account/service.accounts';
 
 export default function Dashboard() {
 
@@ -11,19 +10,14 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const accountId = getActiveAccount();
-    if(!accountId) {
-      console.error("No account id!")
-    }
     async function fetchData() {
       try {
-        const response = await retrieveAccount(accountId);
+        const response = await getMyAccount();
         setAccount(response);
       } catch (error) {
         console.error(error);
       }
     }
-
     fetchData();
   },[]);
 

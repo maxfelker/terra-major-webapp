@@ -17,14 +17,12 @@ export default function LoginForm() {
     event.preventDefault();
     try {
       const { token, error } = await login(payload);
-      
       if(error) {
         setError(error);
       } else {
         setAccountToken(token);
         navigate(`/dashboard`);
       }
-     
     } catch (error) {
       console.error(error);
     }

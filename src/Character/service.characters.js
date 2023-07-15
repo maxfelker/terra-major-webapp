@@ -42,3 +42,14 @@ export async function getCharacters() {
   const response = await fetch(baseUrl);
   return await response.json();
 }
+
+export async function getMyCharacters() {
+  const token = sessionStorage.getItem('account-token');
+  const url = `${apiURL}/my/characters`;
+  const response = await fetch(url, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+  return await response.json();
+}

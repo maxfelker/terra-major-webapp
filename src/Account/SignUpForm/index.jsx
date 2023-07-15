@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { createAccount } from '../service.accounts';
+import { signUp, setAccountToken } from '../service.accounts';
 import { TextInput } from "../../Form";
 
 export default function SignUpForm() {
@@ -15,15 +15,13 @@ export default function SignUpForm() {
     }
     event.preventDefault();
     try {
-      const response = await createAccount(payload);
-      
-      if(response.error) {
-        setError(response.error);
+      const { token, error } = await signUp(payload);
+      if(error) {
+        setError(error);
       } else {
-        setActiveAccount(response.id);
+        setAccountToken(token);
         navigate(`/dashboard`);
       }
-     
     } catch (error) {
       console.error(error);
     }

@@ -1,14 +1,14 @@
 // CharacterList.js
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getCharacters } from '../service.characters';
+import { getMyCharacters } from '../service.characters';
 
 export default function CharacterList() {
     const [characters, setCharacters] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await getCharacters();
+            const response = await getMyCharacters();
             setCharacters(response);
         };
         fetchData();

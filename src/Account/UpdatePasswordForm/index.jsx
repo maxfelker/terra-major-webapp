@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { updatePassword } from '../service.accounts';
+import { setAccountToken, updatePassword } from '../service.accounts';
 import { TextInput } from "../../Form";
 import { Link } from 'react-router-dom';
 
@@ -26,15 +26,14 @@ export default function UpdatePasswordForm() {
     setSuccess(null);
 
     try {
-      const accountId = sessionStorage.getItem('accountId');
-      const { status, error } = await updatePassword(accountId, payload);
-      if(status === 200) {
-        setSuccess(true);
-        setPayload(initialPayload); // Reset form inputs to their initial state
-      }
+      const { token, error } = await updatePassword(payload);
       if(error) {
         setError(error);
-      } 
+      } else {
+        setAccountToken(token);
+        setSuccess(true);
+        setPayload(initialPayload);
+      }
     } catch (error) {
       setError(error);
     }
