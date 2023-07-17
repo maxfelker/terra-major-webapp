@@ -24,6 +24,7 @@ export default function SignUpForm() {
       }
     } catch (error) {
       console.error(error);
+      setError('Try again later citizen, orbital API is not responding...');
     }
   };
 

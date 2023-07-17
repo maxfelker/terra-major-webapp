@@ -30,6 +30,7 @@ export async function signUp(account) {
 }
 
 export async function getMyAccount() {
+  
   const token = sessionStorage.getItem('account-token');
   const url = `${apiURL}/me`;
   const response = await fetch(url, {
@@ -37,6 +38,9 @@ export async function getMyAccount() {
       'Authorization': `Bearer ${token}`,
     },
   });
+  if(response.status === 401) {
+    return { error: 'Token is invalid'}
+  }
   return await response.json();
 }
 

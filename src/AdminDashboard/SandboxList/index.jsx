@@ -26,8 +26,8 @@ export default function SandboxList() {
           <thead>
             <tr style={{textAlign:'left'}}>
               <th>Sandbox Id</th>
+              <th>Account Id</th>
               <th>Character Id</th>
-              <th>Instance Count</th>
               <th>Created</th>
             </tr>
           </thead>
@@ -37,8 +37,8 @@ export default function SandboxList() {
               <td> 
                 <Link to={sandboxUrl(sandbox)}>{sandbox.id} </Link>
               </td>
+              <td>{sandbox.accountId}</td>
               <td>{sandbox.characterId}</td>
-              <td></td>
               <td>{sandbox.created}</td>
             </tr>
           ))}

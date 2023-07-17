@@ -3,7 +3,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import TextInput from '../../Form/TextInput';
 import RangeInput from '../../Form/RangeInput';
-import { getActiveAccount } from '../../App/service.app';
+import { Link } from "react-router-dom";
 
 CharacterForm.propTypes = {
   initialCharacter: PropTypes.object,
@@ -20,12 +20,12 @@ const defaultCharacter = {
   endurance: 5,
   agility: 5,
   created: null,
-  updated: null,
-  accountId: getActiveAccount()
+  updated: null
 };
 
 export default function CharacterForm({ initialCharacter, submitHandler, onSuccess }) {
   const [character, setCharacter] = useState(initialCharacter || defaultCharacter);
+  const [ error, setError ] = useState(null);
 
   const handleChange = (event) => {
     let value = event.target.value;
@@ -40,14 +40,19 @@ export default function CharacterForm({ initialCharacter, submitHandler, onSucce
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const updatedCharacter = await submitHandler(character);
-      setCharacter(updatedCharacter);
-      if(onSuccess) {
-        onSuccess(updatedCharacter);
+      const response = await submitHandler(character);
+      const { error } = response;
+      if(error) {
+          setError(error);
+      } else {
+        setError(null);
+        setCharacter(response);
+        if(onSuccess) {
+          onSuccess(response);
+        }
       }
     } catch (error) {
-      console.error(error);
-      // Handle errors as needed
+      setError(error);
     }
   };
 
@@ -55,6 +60,9 @@ export default function CharacterForm({ initialCharacter, submitHandler, onSucce
 
   return (
     <form onSubmit={handleSubmit}>
+      {error && 
+        <p>{error}</p>
+      }
       <TextInput name="name" value={character.name} onChange={handleChange} label="Name" />
       <TextInput name="bio" value={character.bio} onChange={handleChange} label="Bio" />
       {character.created &&
@@ -74,6 +82,7 @@ export default function CharacterForm({ initialCharacter, submitHandler, onSucce
         <p>Created: {character.created} / Last Updated: {character.updated} </p>
       }
       <button type="submit">Save</button>
+      <p><Link to="/dashboard">Back to Dashboard</Link></p>
     </form>
   );
 }

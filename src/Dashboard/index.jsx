@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import CharacterList from "../Character/CharacterList";
-import { getMyAccount } from '../Account/service.accounts';
+import { getMyAccount, logout } from '../Account/service.accounts';
 
 export default function Dashboard() {
 
@@ -13,7 +13,11 @@ export default function Dashboard() {
     async function fetchData() {
       try {
         const response = await getMyAccount();
-        setAccount(response);
+        if(response.error){
+          signOut();
+        } else{
+          setAccount(response);
+        }
       } catch (error) {
         console.error(error);
       }
@@ -22,7 +26,7 @@ export default function Dashboard() {
   },[]);
 
   function signOut() {
-    sessionStorage.clear();
+    logout();
     navigate('/');
   }
 

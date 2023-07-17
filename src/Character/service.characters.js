@@ -2,9 +2,11 @@ const apiURL = import.meta.env.VITE_TERRA_MAJOR_API_URL;
 const baseUrl = `${apiURL}/characters`;
 
 export async function createCharacter(character) {
+  const token = sessionStorage.getItem('account-token');
   const response = await fetch(baseUrl, {
     method: 'POST',
     headers: {
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(character),
@@ -35,11 +37,6 @@ export async function archiveCharacter(id) {
       'Content-Type': 'application/json',
     }
   });
-  return await response.json();
-}
-
-export async function getCharacters() {
-  const response = await fetch(baseUrl);
   return await response.json();
 }
 
