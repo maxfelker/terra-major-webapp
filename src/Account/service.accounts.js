@@ -57,7 +57,7 @@ export async function login(account) {
 
 export async function updatePassword(payload) {
   const token = sessionStorage.getItem('account-token');
-  const response = await fetch(`${apiURL}/me/password`, {
+  const response = await fetch(`${apiURL}/my/password`, {
     method: 'PATCH',
     headers: {
       'Authorization': `Bearer ${token}`,
