@@ -1,11 +1,12 @@
 # Build stage
 FROM node:18-alpine AS build
 WORKDIR /app
+COPY package.json .
+COPY package-lock.json .
 COPY index.html .
-COPY package*.json .
 COPY vite.config.js .
-COPY src/ /app/src
-COPY public/ /app/public
+COPY public/ public/
+COPY src/ src/
 RUN npm ci
 RUN npm run build
 
