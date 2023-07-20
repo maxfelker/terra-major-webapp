@@ -30,13 +30,14 @@ export default function SignUpForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Sign up for account</h1>
+      <h1>New Citizen Registry</h1>
+      <p>All persons travelling to the <em>Terra Major</em> surface must register as Commonwealth citizenship.</p>
       {error && 
         <p>ERROR: {error}</p>
       }
       <TextInput type="email" name="email" label="Your Email" />
       <TextInput type="password" name="password" label="Password" />
-      <button type="submit">Create Account</button>
+      <button type="submit">Become a citizen!</button>
     </form>
   );
 }

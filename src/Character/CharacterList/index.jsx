@@ -34,6 +34,8 @@ export default function CharacterList() {
             <CharacterCreate />
         }
         {characters && characters.length > 0 && 
+            <>
+            <p><Link to="/characters/new">Create new DigiPersona</Link></p>
             <div className={styles.characterGrid}>
                 {characters.map((character) => (
                     <div className={styles.characterPreview} key={character.id}>
@@ -43,6 +45,7 @@ export default function CharacterList() {
                     </div>
                 ))}
             </div>
+            </>
         }
         </>    
     );

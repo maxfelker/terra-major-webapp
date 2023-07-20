@@ -19,13 +19,12 @@ export default function CharacterCreate() {
 
   return (
     <>
-      <h2>New Citizen Registry</h2>
-      <p>All persons travelling to the <em>Terra Major</em> surface must register as Commonwealth citizenship.</p>
-      <p>Please tell us about you citizen:</p>
+      <h1>Your new DigiPersona</h1>
+      <p>Every Commonwealth citizen has atleast one DigiPersona: a digital representation of you that can explore <em>Terra Major</em>. To create a new DigiPersona, please fill out all the fields below.</p>
       <CharacterForm
         submitHandler={handleSubmit}
         onSuccess={handleSuccess}
-        submitBtnLabel="Become a Citizen!"
+        submitBtnLabel="Create your DigiPersona"
       />
     </>
   );
