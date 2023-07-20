@@ -33,7 +33,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <nav>
+      <nav className={styles.nav}>
         <Link to="/dashboard/account">My Account</Link>
         <div>{account && account.email} - <button onClick={signOut}>Sign Out</button></div>
       </nav>

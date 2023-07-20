@@ -1,5 +1,3 @@
-import { getActiveAccount, getActiveCharacter, getActiveSandbox } from "../App/service.app";
-
 const apiURL = import.meta.env.VITE_TERRA_MAJOR_API_URL;
 const baseUrl = `${apiURL}/tokens`;
 

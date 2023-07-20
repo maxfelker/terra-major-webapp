@@ -5,6 +5,7 @@ import { getMyCharacters } from '../service.characters';
 import styles from './styles.module.css';
 import CharacterCreate from '../CharacterCreate';
 import { createUnityClientToken } from '../../UnityWebClient/service.unity-client';
+import CharacterPreview from "../Preview";
 
 export default function CharacterList() {
     const [characters, setCharacters] = useState([]);
@@ -36,6 +37,7 @@ export default function CharacterList() {
             <div className={styles.characterGrid}>
                 {characters.map((character) => (
                     <div className={styles.characterPreview} key={character.id}>
+                        <CharacterPreview />
                         <Link to={`/characters/${character.id}`}>{character.name}</Link>
                         <button onClick={() => startGame(character.id)} className={styles.playButton}>Play</button>
                     </div>
