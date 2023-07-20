@@ -18,9 +18,15 @@ export default function CharacterCreate() {
   };
 
   return (
-    <CharacterForm
-      submitHandler={handleSubmit}
-      onSuccess={handleSuccess}
-    />
+    <>
+      <h2>New Citizen Registry</h2>
+      <p>All persons travelling to the <em>Terra Major</em> surface must register as Commonwealth citizenship.</p>
+      <p>Please tell us about you citizen:</p>
+      <CharacterForm
+        submitHandler={handleSubmit}
+        onSuccess={handleSuccess}
+        submitBtnLabel="Become a Citizen!"
+      />
+    </>
   );
 }

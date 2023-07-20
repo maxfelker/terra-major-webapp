@@ -1,10 +1,14 @@
 // CharacterList.js
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getMyCharacters } from '../service.characters';
+import styles from './styles.module.css';
+import CharacterCreate from '../CharacterCreate';
+import { createUnityClientToken } from '../../UnityWebClient/service.unity-client';
 
 export default function CharacterList() {
     const [characters, setCharacters] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -14,15 +18,30 @@ export default function CharacterList() {
         fetchData();
     }, []);
 
+    async function startGame(characterId) {
+        const { token, error } = await createUnityClientToken(characterId);
+        if(error) {
+            console.error('Issue generating the token', error);
+        } else {
+            sessionStorage.setItem('unity-client-token', token);
+            navigate(`/play`);
+        }
+    }
     return (
-        <div>
-            <h1>Characters</h1>
-            <p><Link to="/characters/new">New Character</Link></p>
-            {characters.map((character) => (
-                <div key={character.id}>
-                    <Link to={`/characters/${character.id}`}>{character.name}</Link>
-                </div>
-            ))}
-        </div>
+        <>
+        {characters && characters.length === 0 &&
+            <CharacterCreate />
+        }
+        {characters && characters.length > 0 && 
+            <div className={styles.characterGrid}>
+                {characters.map((character) => (
+                    <div className={styles.characterPreview} key={character.id}>
+                        <Link to={`/characters/${character.id}`}>{character.name}</Link>
+                        <button onClick={() => startGame(character.id)} className={styles.playButton}>Play</button>
+                    </div>
+                ))}
+            </div>
+        }
+        </>    
     );
 }

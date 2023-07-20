@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import CharacterList from "../Character/CharacterList";
 import { getMyAccount, logout } from '../Account/service.accounts';
+import styles from './styles.module.css';
 
 export default function Dashboard() {
 
@@ -32,8 +33,12 @@ export default function Dashboard() {
 
   return (
     <>
-      <h1>Dashboard</h1> - <Link to="/play">Play Now</Link> <Link to="/dashboard/account">My Account</Link>
-      <p>{account && account.email} - <button onClick={signOut}>Sign Out</button></p>
+      <nav>
+        <Link to="/dashboard/account">My Account</Link>
+        <div>{account && account.email} - <button onClick={signOut}>Sign Out</button></div>
+      </nav>
+      {/*<h1>Good afternoon, Citizen!</h1>
+      <p>This is your dashboard where you can explore and manage your Terra Major characters.</p>*/}
       <CharacterList />  
     </>
   )

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import CharacterForm from '../CharacterForm';
 import { retrieveCharacter, updateCharacter, archiveCharacter } from '../service.characters';
 
@@ -53,12 +53,14 @@ export default function CharacterDetail() {
 
     {character &&
       <>
-      <CharacterForm
-        initialCharacter={character}
-        submitHandler={handleSubmit}
-        onSuccess={handleSuccess}
-      />
-      <p><button onClick={attemptArchive}>Archive</button></p>
+        <CharacterForm
+          initialCharacter={character}
+          submitHandler={handleSubmit}
+          onSuccess={handleSuccess}
+          submitBtnLabel="Save"
+        />
+        <p><button onClick={attemptArchive}>Archive</button></p>
+        <p><Link to="/dashboard">Back to Dashboard</Link></p>
       </>
     }
     </>

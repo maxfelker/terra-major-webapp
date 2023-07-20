@@ -1,7 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import styles from './styles.module.css';
-import { createUnityClientToken } from './service.unity-client';
 
 function generatePath(suffix) {
   const version = import.meta.env.VITE_BUILD_VERSION;
@@ -47,7 +46,7 @@ export default function UnityWebClient() {
 
   useEffect(() => {
     const retrieveToken = async () => {
-      const { token } = await createUnityClientToken();
+      const token = sessionStorage.getItem('unity-client-token');
       if(isLoaded && token) {
         const baseUrl = import.meta.env.VITE_TERRA_MAJOR_API_URL;
         const clientConfig = {
