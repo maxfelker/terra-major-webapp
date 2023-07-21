@@ -1,0 +1,46 @@
+.characterGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.characterPreview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  box-sizing: border-box;
+  border-radius:5px 5px 0px 0px;
+  position: relative;
+}
+
+.buttonContainer {
+  position: absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  padding: 10px 20px;
+}
+
+.playButton {
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 0;
+  width:150px;
+  border-radius: 5px;
+}
+
+@media (min-width: 1600px) {
+  .characterGrid {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1599px) {
+  .characterGrid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { login, setAccountToken } from '../service.accounts';
 import { TextInput } from "../../Form";
-import { setActiveAccount } from '../../App/service.app';
 
 export default function LoginForm() {
   const navigate = useNavigate();

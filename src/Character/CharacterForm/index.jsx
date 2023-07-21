@@ -8,7 +8,8 @@ import { Link } from "react-router-dom";
 CharacterForm.propTypes = {
   initialCharacter: PropTypes.object,
   submitHandler: PropTypes.func.isRequired,
-  onSuccess: PropTypes.func.isRequired
+  onSuccess: PropTypes.func.isRequired,
+  submitBtnLabel: PropTypes.string.isRequired
 };
 
 const defaultCharacter = {
@@ -23,7 +24,7 @@ const defaultCharacter = {
   updated: null
 };
 
-export default function CharacterForm({ initialCharacter, submitHandler, onSuccess }) {
+export default function CharacterForm({ initialCharacter, submitHandler, onSuccess, submitBtnLabel }) {
   const [character, setCharacter] = useState(initialCharacter || defaultCharacter);
   const [ error, setError ] = useState(null);
 
@@ -81,8 +82,7 @@ export default function CharacterForm({ initialCharacter, submitHandler, onSucce
       {character.created &&
         <p>Created: {character.created} / Last Updated: {character.updated} </p>
       }
-      <button type="submit">Save</button>
-      <p><Link to="/dashboard">Back to Dashboard</Link></p>
+      <button type="submit">{submitBtnLabel}</button>
     </form>
   );
 }
