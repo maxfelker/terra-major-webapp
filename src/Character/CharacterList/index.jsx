@@ -20,6 +20,7 @@ export default function CharacterList() {
     }, []);
 
     async function startGame(characterId) {
+        sessionStorage.setItem('unity-client-token', null);
         const { token, error } = await createUnityClientToken(characterId);
         if(error) {
             console.error('Issue generating the token', error);
@@ -40,8 +41,10 @@ export default function CharacterList() {
                 {characters.map((character) => (
                     <div className={styles.characterPreview} key={character.id}>
                         <CharacterPreview />
-                        <Link to={`/characters/${character.id}`}>{character.name}</Link>
-                        <button onClick={() => startGame(character.id)} className={styles.playButton}>Play</button>
+                        <div className={styles.buttonContainer}>
+                            <Link to={`/characters/${character.id}`}>{character.name}</Link>
+                            <button onClick={() => startGame(character.id)} className={styles.playButton}>Send to Surface</button>
+                        </div>
                     </div>
                 ))}
             </div>

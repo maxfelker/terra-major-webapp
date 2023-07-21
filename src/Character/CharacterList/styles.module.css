@@ -15,18 +15,22 @@
   position: relative;
 }
 
-.playButton {
+.buttonContainer {
   position: absolute;
   left:0;
   right:0;
   bottom:0;
   width:100%;
   padding: 10px 20px;
-  background-color: #000;
+}
+
+.playButton {
   color: #fff;
   text-decoration: none;
   text-align: center;
   border-radius: 0;
+  width:150px;
+  border-radius: 5px;
 }
 
 @media (min-width: 1600px) {

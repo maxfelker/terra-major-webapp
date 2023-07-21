@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import CharacterForm from '../CharacterForm';
 import { retrieveCharacter, updateCharacter, archiveCharacter } from '../service.characters';
+import CharacterPreview from '../Preview';
 
 export default function CharacterDetail() {
   const { id } = useParams();
@@ -53,6 +54,7 @@ export default function CharacterDetail() {
 
     {character &&
       <>
+        <CharacterPreview />
         <CharacterForm
           initialCharacter={character}
           submitHandler={handleSubmit}
