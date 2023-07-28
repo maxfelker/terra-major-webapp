@@ -18,9 +18,14 @@ export default function CharacterCreate() {
   };
 
   return (
-    <CharacterForm
-      submitHandler={handleSubmit}
-      onSuccess={handleSuccess}
-    />
+    <>
+      <h1>Your new DigiPersona</h1>
+      <p>Every Commonwealth citizen has atleast one DigiPersona: a digital representation of you that can explore <em>Terra Major</em>. To create a new DigiPersona, please fill out all the fields below.</p>
+      <CharacterForm
+        submitHandler={handleSubmit}
+        onSuccess={handleSuccess}
+        submitBtnLabel="Create your DigiPersona"
+      />
+    </>
   );
 }
