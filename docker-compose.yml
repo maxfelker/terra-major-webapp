@@ -10,7 +10,7 @@ services:
       VITE_TERRA_MAJOR_API_URL: ${VITE_TERRA_MAJOR_API_URL}
       VITE_BUILD_BASE_URL:  ${VITE_BUILD_BASE_URL}
       VITE_BUILD_VERSION: ${VITE_BUILD_VERSION}
-      VITE_AZURE_APP_CONFIG: ${VITE_AZURE_APP_CONFIG}
+      VITE_AZURE_CONFIG_URL: ${VITE_AZURE_CONFIG_URL}
       PORT: 5173
     ports:
       - 5173:5173
@@ -24,5 +24,6 @@ services:
       dockerfile: ./Dockerfile
     environment:
       PORT: 80
+      AZURE_CONFIG_URL: ${VITE_AZURE_CONFIG_URL}
     ports:
       - 80:80

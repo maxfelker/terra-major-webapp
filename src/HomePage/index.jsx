@@ -1,24 +1,8 @@
 import { Link } from "react-router-dom";
 
-import { AppConfigurationClient } from '@azure/app-configuration';
-
-
-async function run() {
-
-  const connectionString = import.meta.env.VITE_AZURE_APP_CONFIG;
-  console.log(connectionString);
-
-  const client = new AppConfigurationClient(connectionString);
-  let retrievedSetting = await client.getConfigurationSetting({
-    key: "terra-major-api-non-prod-base-url"
-  });
-
-  console.log("Retrieved value:", retrievedSetting.value);
-}
-
 export default function HomePage() {
-  const version = VITE_BUILD_VERSION ? VITE_BUILD_VERSION : import.meta.env.VITE_BUILD_VERSION;
-  run()
+  const version = localStorage.getItem('build-version');
+
   return (
     <>
       <h1>Terra Major v{version}</h1>
