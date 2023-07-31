@@ -3,7 +3,7 @@ import { useFBX, Environment, OrbitControls, useTexture  } from "@react-three/dr
 import { Suspense, useRef } from "react";
 
 function Model() {
-    const fbx = useFBX('ZR7_blue.FBX')
+    const fbx = useFBX('/ZR7_blue.FBX')
     const model = fbx.clone() // clone the FBX object
    // const texture = useTexture('Humanbot_Albedo_Green.png'); // replace with the path to your texture file
     const modelRef = useRef()

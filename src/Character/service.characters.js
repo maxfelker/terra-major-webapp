@@ -1,9 +1,13 @@
-const apiURL = import.meta.env.VITE_TERRA_MAJOR_API_URL;
-const baseUrl = `${apiURL}/characters`;
+function apiUrl() {
+  return localStorage.getItem('api-base-url');
+}
 
+function baseUrl() {
+  return `${apiUrl()}/characters`;
+}
 export async function createCharacter(character) {
   const token = sessionStorage.getItem('account-token');
-  const response = await fetch(baseUrl, {
+  const response = await fetch(baseUrl(), {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -15,12 +19,12 @@ export async function createCharacter(character) {
 }
 
 export async function retrieveCharacter(id) {
-  const response = await fetch(`${baseUrl}/${id}`);
+  const response = await fetch(`${baseUrl()}/${id}`);
   return await response.json();
 }
 
 export async function updateCharacter(id, character) {
-  const response = await fetch(`${baseUrl}/${id}`, {
+  const response = await fetch(`${baseUrl()}/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -31,7 +35,7 @@ export async function updateCharacter(id, character) {
 }
 
 export async function archiveCharacter(id) {
-  const response = await fetch(`${baseUrl}/${id}`, {
+  const response = await fetch(`${baseUrl()}/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -42,7 +46,7 @@ export async function archiveCharacter(id) {
 
 export async function getMyCharacters() {
   const token = sessionStorage.getItem('account-token');
-  const url = `${apiURL}/my/characters`;
+  const url = `${apiUrl()}/my/characters`;
   const response = await fetch(url, {
     headers: {
       'Authorization': `Bearer ${token}`,
