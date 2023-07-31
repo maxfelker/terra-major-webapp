@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: ./Dockerfile.dev
     environment:
-      VITE_TERRA_MAJOR_API_URL: ${VITE_TERRA_MAJOR_API_URL}
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL}
       VITE_BUILD_BASE_URL:  ${VITE_BUILD_BASE_URL}
       VITE_BUILD_VERSION: ${VITE_BUILD_VERSION}
       VITE_AZURE_CONFIG_URL: ${VITE_AZURE_CONFIG_URL}
