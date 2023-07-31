@@ -7,9 +7,10 @@ Web app and admin for Terra Major.
 First, create a `.env` file in the root of the directory with the following values:
 
 ```bash
-VITE_TERRA_MAJOR_API_URL=http://localhost:8000
-VITE_BUILD_BASE_URL=build
-VITE_BUILD_VERSION=0.11.6
+VITE_BUILD_VERSION=xxx
+VITE_API_BASE_URL=http://localhost:8000
+VITE_BUILD_BASE_URL=xxx
+VITE_AZURE_CONFIG_URL=xxx
 ```
 
 ## Run app in Dev mode locally
