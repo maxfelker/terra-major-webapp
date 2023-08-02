@@ -1,8 +1,13 @@
-const apiURL = import.meta.env.VITE_TERRA_MAJOR_API_URL;
-const baseUrl = `${apiURL}/accounts`;
+function apiUrl() {
+  return localStorage.getItem('api-base-url');
+}
+
+function baseUrl() {
+  return `${apiUrl()}/accounts`;
+}
 
 export async function createAccount(account) {
-  const response = await fetch(baseUrl, {
+  const response = await fetch(baseUrl(), {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -13,12 +18,12 @@ export async function createAccount(account) {
 }
 
 export async function retrieveAccount(id) {
-  const response = await fetch(`${baseUrl}/${id}`);
+  const response = await fetch(`${baseUrl()}/${id}`);
   return await response.json();
 }
 
 export async function signUp(account) {
-  const url = `${apiURL}/signup`;
+  const url = `${apiUrl()}/signup`;
   const response = await fetch(url, {
     method: 'POST',
     headers: {
@@ -32,7 +37,7 @@ export async function signUp(account) {
 export async function getMyAccount() {
   
   const token = sessionStorage.getItem('account-token');
-  const url = `${apiURL}/me`;
+  const url = `${apiUrl()}/me`;
   const response = await fetch(url, {
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -45,7 +50,7 @@ export async function getMyAccount() {
 }
 
 export async function login(account) {
-  const response = await fetch(`${apiURL}/login`, {
+  const response = await fetch(`${apiUrl()}/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -57,7 +62,7 @@ export async function login(account) {
 
 export async function updatePassword(payload) {
   const token = sessionStorage.getItem('account-token');
-  const response = await fetch(`${apiURL}/my/password`, {
+  const response = await fetch(`${apiUrl()}/my/password`, {
     method: 'PATCH',
     headers: {
       'Authorization': `Bearer ${token}`,

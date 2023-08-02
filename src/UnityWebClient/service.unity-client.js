@@ -1,12 +1,17 @@
-const apiURL = import.meta.env.VITE_TERRA_MAJOR_API_URL;
-const baseUrl = `${apiURL}/tokens`;
+function apiUrl() {
+  return localStorage.getItem('api-base-url');
+}
+
+function baseUrl() {
+  return `${apiUrl()}/tokens`;
+}
 
 export async function createUnityClientToken(characterId) {
   const token = sessionStorage.getItem('account-token');
   const payload = {
     characterId
   };
-  const response = await fetch(baseUrl, {
+  const response = await fetch(baseUrl(), {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${token}`,

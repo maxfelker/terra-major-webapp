@@ -3,10 +3,10 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 import styles from './styles.module.css';
 
 function generatePath(suffix) {
-  const version = import.meta.env.VITE_BUILD_VERSION;
-  const buildDir = import.meta.env.VITE_BUILD_BASE_URL;
+  const version = localStorage.getItem('build-version');
+  const buildDir = localStorage.getItem('build-base-url');
 
-  return `${buildDir}/${version}.${suffix}`;
+  return `${buildDir}/${version}/${version}.${suffix}`;
 }
 
 function generateConfig() {

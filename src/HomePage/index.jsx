@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function HomePage() {
-  const version = import.meta.env.VITE_BUILD_VERSION;
+  const version = localStorage.getItem('build-version');
 
   return (
     <>

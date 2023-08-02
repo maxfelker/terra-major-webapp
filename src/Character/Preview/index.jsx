@@ -1,14 +1,14 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useFBX, Environment, OrbitControls, useTexture  } from "@react-three/drei";
+import { useFBX, Environment, OrbitControls  } from "@react-three/drei";
 import { Suspense, useRef } from "react";
 
 function Model() {
-    const fbx = useFBX('ZR7_blue.FBX')
+    const previewUrl = localStorage.getItem('character-fbx-url');
+    const fbx = useFBX(previewUrl)
     const model = fbx.clone() // clone the FBX object
-   // const texture = useTexture('Humanbot_Albedo_Green.png'); // replace with the path to your texture file
     const modelRef = useRef()
 
-    useFrame(({ clock }) => {
+    useFrame(() => {
         if (modelRef.current) {
             modelRef.current.rotation.y += 0.0025;
         }
@@ -19,7 +19,6 @@ function Model() {
     return (
       <mesh ref={modelRef} position={[0, 0, -50]} rotation={[-20,randomY,40]}>
         <primitive object={model} />
-
       </mesh>
     )
 }
