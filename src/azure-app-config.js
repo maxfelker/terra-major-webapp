@@ -17,6 +17,7 @@ export default async function setLocalSettings() {
     VITE_API_BASE_URL,
     VITE_BUILD_BASE_URL,
     VITE_BUILD_VERSION,
+    VITE_CHARACTER_FBX_URL
   } = import.meta.env;
 
   if(isDefined(VITE_API_BASE_URL)) {
@@ -29,6 +30,10 @@ export default async function setLocalSettings() {
 
   if(isDefined(VITE_BUILD_VERSION)) {
     localStorage.setItem('build-version', VITE_BUILD_VERSION);
+  }
+
+  if(isDefined(VITE_CHARACTER_FBX_URL)) {
+    localStorage.setItem('character-fbx-url', VITE_CHARACTER_FBX_URL);
   }
 
   const client = await createClient();
