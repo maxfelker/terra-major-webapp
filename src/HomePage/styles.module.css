@@ -1,21 +1,31 @@
+/* Default styling for .hero */
 .hero {
-  height:600px;
+  height: 600px;
   width: 100%;
   position: relative;
   background-size: cover;
-  background-image: url("./art-3.png");
-  background-position: center;
+  background-image: url("./art-0.png");
+  background-position: 65% center;
+}
+
+/* Media query for screens smaller than 700px */
+@media (max-width: 699px) {
+  .hero {
+    height: 450px; /* Set height to 350px for screens smaller than 700px */
+  }
 }
 
 .heroContent {
   position: absolute;
   bottom: 1rem;
   left:1rem;
-  padding:1rem;
+  padding: 0 1rem;
 }
 
 .heroContent h1 {
+  font-size:4rem;
   text-transform: uppercase;
+  margin-bottom: 0rem;
 }
 
 .heroContent p + p {
