@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { signUp, setAccountToken } from '../service.accounts';
 import { TextInput } from "../../Form";
@@ -38,6 +38,7 @@ export default function SignUpForm() {
       <TextInput type="email" name="email" label="Your Email" />
       <TextInput type="password" name="password" label="Password" />
       <button type="submit">Become a citizen!</button>
+      <p>Already a Citizen? <Link to="/login">Login</Link></p>
     </form>
   );
 }

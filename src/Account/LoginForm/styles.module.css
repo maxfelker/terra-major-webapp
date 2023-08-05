@@ -1,11 +1,23 @@
+form {
+  margin:0rem auto;
+  max-width:600px;
+}
+
+.error {
+  border:1px solid #32a0d3e0;
+  background:#18495fe0;
+  padding:0.5rem;
+  border-radius: 5px;
+}
+
 /* Default styling for .hero */
 .hero {
   height: 600px;
   width: 100%;
   position: relative;
   background-size: cover;
-  background-image: url("./art-0.png");
-  background-position: 65% center;
+  background-image: url("./colonist-1.png");
+  background-position: center top;
 }
 
 /* Media query for screens smaller than 700px */
@@ -25,7 +37,7 @@
 }
 
 .heroContent h1 {
-  font-size:4rem;
+  font-size:2rem;
   text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);
   text-transform: uppercase;
   margin-top:0;
@@ -43,14 +55,3 @@
   margin-bottom: 0;
   padding-bottom: 0;
 }
-
-
-
-.heroContent p + p {
-  padding-top: 0;
-}
-
-button {
-  display: inline-block;
-}
-

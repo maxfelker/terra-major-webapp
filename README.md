@@ -11,6 +11,7 @@ VITE_BUILD_VERSION=xxx
 VITE_API_BASE_URL=http://localhost:8000
 VITE_BUILD_BASE_URL=xxx
 VITE_AZURE_CONFIG_URL=xxx
+VITE_CHARACTER_FBX_URL=ZR7_blue.FBX
 ```
 
 ## Run app in Dev mode locally
