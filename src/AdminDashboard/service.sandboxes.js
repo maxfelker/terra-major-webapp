@@ -1,6 +1,6 @@
 function createUrl() {
-  const apiURL = import.meta.env.VITE_TERRA_MAJOR_API_URL;
-  return `${apiURL}/sandboxes`;
+  const apiUrl = localStorage.getItem('api-base-url');
+  return `${apiUrl}/sandboxes`;
 }
 
 export async function getSandboxes() {
