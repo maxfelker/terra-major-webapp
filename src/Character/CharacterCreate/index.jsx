@@ -18,14 +18,14 @@ export default function CharacterCreate() {
   };
 
   return (
-    <>
-      <h1>Your new DigiPersona</h1>
-      <p>Every Commonwealth citizen has atleast one DigiPersona: a digital representation of you that can explore <em>Terra Major</em>. To create a new DigiPersona, please fill out all the fields below.</p>
+    <div style={{margin:'4rem auto', maxWidth:'400px'}}>
+      <h1>New Colonist</h1>
+      <p>All Commonwealth citizens are free to travel to and live on <em>Terra Major</em>, but only Colonists can build and mine resources. To register as a Commonwealth Colonist, please complete the form below.</p>
       <CharacterForm
         submitHandler={handleSubmit}
         onSuccess={handleSuccess}
-        submitBtnLabel="Create your DigiPersona"
+        submitBtnLabel="Save"
       />
-    </>
+    </div>
   );
 }

@@ -53,7 +53,7 @@ export default function CharacterDetail() {
     }
 
     {character &&
-      <>
+      <div  style={{margin:'4rem auto', maxWidth:'600px'}}>
         <CharacterPreview />
         <CharacterForm
           initialCharacter={character}
@@ -63,7 +63,7 @@ export default function CharacterDetail() {
         />
         <p><button onClick={attemptArchive}>Archive</button></p>
         <p><Link to="/dashboard">Back to Dashboard</Link></p>
-      </>
+      </div>
     }
     </>
   );

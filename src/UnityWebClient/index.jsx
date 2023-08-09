@@ -48,7 +48,7 @@ export default function UnityWebClient() {
     const initGame = async () => {
       const token = sessionStorage.getItem('unity-client-token');
       if(isLoaded && token) {
-        const baseUrl = import.meta.env.VITE_TERRA_MAJOR_API_URL;
+        const baseUrl = localStorage.getItem('api-base-url');
         const clientConfig = {
           baseUrl,
           token

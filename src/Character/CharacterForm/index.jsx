@@ -3,7 +3,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import TextInput from '../../Form/TextInput';
 import RangeInput from '../../Form/RangeInput';
-import { Link } from "react-router-dom";
+import appStyles from '../../App/styles.module.css';
 
 CharacterForm.propTypes = {
   initialCharacter: PropTypes.object,
@@ -62,12 +62,16 @@ export default function CharacterForm({ initialCharacter, submitHandler, onSucce
   return (
     <form onSubmit={handleSubmit}>
       {error && 
-        <p>{error}</p>
+        <p className={appStyles.error}>{error}</p>
       }
       <TextInput name="name" value={character.name} onChange={handleChange} label="Name" />
       <TextInput name="bio" value={character.bio} onChange={handleChange} label="Bio" />
       {character.created &&
-        <p>Age: {character.age}</p>
+        <>
+          <p>XP: 0</p>
+          <p>Skills: Building</p>
+          <p>Age: {character.age}</p>
+        </>
       }
       {['strength', 'intelligence', 'endurance', 'agility'].map(attr => (
         <RangeInput 

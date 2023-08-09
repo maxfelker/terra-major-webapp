@@ -9,10 +9,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 600px;
+  height: 400px;
   box-sizing: border-box;
   border-radius:5px 5px 0px 0px;
   position: relative;
+  border: 1px solid #2bab97;
+
 }
 
 .buttonContainer {
@@ -20,17 +22,15 @@
   left:0;
   right:0;
   bottom:0;
-  width:100%;
-  padding: 10px 20px;
+  z-index: 999;
+  background: #7cffeb3e;
+  padding:1rem;
 }
 
 .playButton {
-  color: #fff;
-  text-decoration: none;
-  text-align: center;
-  border-radius: 0;
-  width:150px;
-  border-radius: 5px;
+  position: absolute;
+  top:-0.5rem;
+  right:0.5rem;
 }
 
 @media (min-width: 1600px) {
@@ -43,4 +43,8 @@
   .characterGrid {
       grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.colonistId {
+  font-size:0.75rem;
 }

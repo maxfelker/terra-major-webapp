@@ -36,15 +36,17 @@ export default function CharacterList() {
         }
         {characters && characters.length > 0 && 
             <>
-            <p><Link to="/characters/new">Create new DigiPersona</Link></p>
+            <p><Link to="/characters/new">Create New Colonist</Link></p>
             <div className={styles.characterGrid}>
                 {characters.map((character) => (
                     <div className={styles.characterPreview} key={character.id}>
-                        <CharacterPreview />
                         <div className={styles.buttonContainer}>
                             <Link to={`/characters/${character.id}`}>{character.name}</Link>
+                            <br/><span className={styles.colonistId}>Colonist ID {character.id}</span>
                             <button onClick={() => startGame(character.id)} className={styles.playButton}>Send to Surface</button>
                         </div>
+                        <CharacterPreview />
+                        
                     </div>
                 ))}
             </div>

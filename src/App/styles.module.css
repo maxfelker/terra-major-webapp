@@ -12,6 +12,10 @@
   .hero {
     height: 450px; /* Set height to 350px for screens smaller than 700px */
   }
+  
+  .hero .heroContent h1 {
+    font-size: 2rem;
+  }
 }
 
 .heroContent {
@@ -45,6 +49,7 @@
 
 button {
   display: inline-block;
+  font-size:0.8rem;
 }
 
 .error {
