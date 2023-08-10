@@ -75,7 +75,7 @@ export default function InstanceForm({ sandbox, initialInstance, submitHandler, 
       }
       <TextInput name="prefabName" value={instance.prefabName} onChange={handleChange} label="Prefab Name" />
       <Vector3GroupInput vector3={instance.position} handleChange={handleChange} name="position" label="Position" />
-      <Vector3GroupInput vector3={instance.rotation} handleChange={handleChange} name="rotation" label="Rotation" />   
+      <Vector3GroupInput vector3={instance.rotation} handleChange={handleChange} name="rotation" label="Rotation" />
       <p>
         <button type="submit">Save</button>
       </p>

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
-import { getInstancesBySandboxId } from '../service.sandboxes';
+import { getInstancesBySandboxId, attemptArchiveInstance } from '../service.sandboxes';
 
 InstanceList.propTypes = {
   sandbox: PropTypes.object.isRequired
@@ -15,14 +15,23 @@ export default function InstanceList(props) {
   const { sandbox } = props;
   const [instances, setSandboxes] = useState([]);
 
-  useEffect(() => {
-      const fetchData = async () => {
-          const data = await getInstancesBySandboxId(sandbox)
-          setSandboxes(data);
-      };
+  const fetchData = async () => {
+    const data = await getInstancesBySandboxId(sandbox)
+    setSandboxes(data);
+  };
 
-      fetchData();
+  useEffect(() => {
+    fetchData();
   }, [sandbox]);
+
+  async function attemptArchive(instance){
+      try {
+        await attemptArchiveInstance(sandbox, instance);
+        fetchData();
+      } catch (error) {
+        console.error(error);
+      }
+  }
 
   return (
     <>
@@ -40,6 +49,7 @@ export default function InstanceList(props) {
             <th>Rotation</th>
             <th>Last Updated</th>
             <th>Created</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -53,6 +63,7 @@ export default function InstanceList(props) {
             <td>{JSON.stringify(instance.rotation)}</td>
             <td>{instance.updated}</td>
             <td>{instance.created}</td>
+            <td><button onClick={() => attemptArchive(instance)}>Archive</button></td>
           </tr>
         ))}
         </tbody>

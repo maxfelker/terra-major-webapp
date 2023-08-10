@@ -77,3 +77,14 @@ export async function archiveSandbox(sandbox) {
   });
   return await response.json();
 }
+
+export async function attemptArchiveInstance(sandbox, instance){
+  const confirmArchive = confirm('Are you sure that you want to archive this instance?');
+  if(confirmArchive) {
+    try {
+      return await archiveInstance(sandbox,instance);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+}

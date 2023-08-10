@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import InstanceForm from '../InstanceForm';
-import { retrieveInstance, updateInstance, archiveInstance, retrieveSandbox } from '../service.sandboxes';
+import { retrieveInstance, updateInstance, archiveInstance, retrieveSandbox, attemptArchiveInstance } from '../service.sandboxes';
 
 export default function InstanceDetail() {
   const { sandboxId, instanceId } = useParams();
@@ -37,15 +37,12 @@ export default function InstanceDetail() {
   }
 
   async function attemptArchive(){
-    const confirmArchive = confirm('Are you sure that you want to archive this instance?');
-    if(confirmArchive) {
       try {
-        await archiveInstance(sandbox,instance);
+        await attemptArchiveInstance(sandbox, instance);
         navigate(`/admin/sandboxes/${sandbox.id}`);
       } catch (error) {
         console.error(error);
       }
-    }
   }
 
   return(
