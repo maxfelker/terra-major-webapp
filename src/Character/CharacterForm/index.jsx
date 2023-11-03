@@ -65,27 +65,30 @@ export default function CharacterForm({ initialCharacter, submitHandler, onSucce
         <p className={appStyles.error}>{error}</p>
       }
       <TextInput name="name" value={character.name} onChange={handleChange} label="Name" />
-      <TextInput name="bio" value={character.bio} onChange={handleChange} label="Bio" />
       {character.created &&
         <>
+          <TextInput name="bio" value={character.bio} onChange={handleChange} label="Bio" />
           <p>XP: 0</p>
           <p>Skills: Building</p>
           <p>Age: {character.age}</p>
+
+          {['strength', 'intelligence', 'endurance', 'agility'].map(attr => (
+            <RangeInput 
+              key={attr} 
+              name={attr} 
+              value={character[attr]} 
+              onChange={handleChange} 
+              disabled={checkDisabled()} 
+              label={attr.charAt(0).toUpperCase() + attr.slice(1)} 
+            />
+          ))}
+
+          <p>Created: {character.created} / Last Updated: {character.updated} </p>
+
         </>
+        
       }
-      {['strength', 'intelligence', 'endurance', 'agility'].map(attr => (
-        <RangeInput 
-          key={attr} 
-          name={attr} 
-          value={character[attr]} 
-          onChange={handleChange} 
-          disabled={checkDisabled()} 
-          label={attr.charAt(0).toUpperCase() + attr.slice(1)} 
-        />
-      ))}
-      {character.created &&
-        <p>Created: {character.created} / Last Updated: {character.updated} </p>
-      }
+
       <button type="submit">{submitBtnLabel}</button>
     </form>
   );

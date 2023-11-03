@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getMyCharacters } from '../service.characters';
 import styles from './styles.module.css';
-import CharacterCreate from '../CharacterCreate';
 import { createUnityClientToken } from '../../UnityWebClient/service.unity-client';
 import CharacterPreview from "../Preview";
 
@@ -31,12 +30,8 @@ export default function CharacterList() {
     }
     return (
         <>
-        {characters && characters.length === 0 &&
-            <CharacterCreate />
-        }
-        {characters && characters.length > 0 && 
+        {characters && 
             <>
-            <p><Link to="/characters/new">Create New Colonist</Link></p>
             <div className={styles.characterGrid}>
                 {characters.map((character) => (
                     <div className={styles.characterPreview} key={character.id}>
@@ -46,9 +41,14 @@ export default function CharacterList() {
                             <button onClick={() => startGame(character.id)} className={styles.playButton}>Send to Surface</button>
                         </div>
                         <CharacterPreview />
-                        
                     </div>
                 ))}
+                    <div className={styles.characterPreview} key="new-character">
+                        <div className={styles.buttonContainer}>
+                            <p><Link to="/characters/new">Create New Colonist</Link></p>
+                        </div>
+                        <CharacterPreview />
+                    </div>
             </div>
             </>
         }

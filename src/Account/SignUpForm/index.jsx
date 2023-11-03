@@ -52,7 +52,7 @@ export default function SignUpForm() {
       </div>
 
       <form className={appStyles.content} onSubmit={handleSubmit}>
-        <p>All persons travelling to the <em>Terra Major</em> surface must register as Commonwealth citizenship.</p>
+        <p>All civillians travelling to the <em>Terra Major</em> surface must register as a Commonwealth citizen.</p>
         {error && 
           <p className={appStyles.error}>ERROR: {error}</p>
         }
