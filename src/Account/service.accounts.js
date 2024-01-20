@@ -22,18 +22,6 @@ export async function retrieveAccount(id) {
   return await response.json();
 }
 
-export async function signUp(account) {
-  const url = `${apiUrl()}/signup`;
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(account),
-  });
-  return await response.json();
-}
-
 export async function getMyAccount() {
   
   const token = sessionStorage.getItem('account-token');
