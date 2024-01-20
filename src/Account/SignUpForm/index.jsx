@@ -1,6 +1,6 @@
 import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
-import { signUp, setAccountToken } from '../service.accounts';
+import { createAccount, setAccountToken } from '../service.accounts';
 import { TextInput } from "../../Form";
 import appStyles from '../../App/styles.module.css';
 import bg from './bg.png';
@@ -28,7 +28,7 @@ export default function SignUpForm() {
     }
   
     try {
-      const { token, error } = await signUp(payload);
+      const { token, error } = await createAccount(payload);
       if(error) {
         setError(error);
       } else {
