@@ -5,7 +5,11 @@ import art2 from "./art-2.png";
 import art3 from "./art-3.png";
 
 export default function HomePage() {
-  const version = localStorage.getItem('build-version');
+  //const version = localStorage.getItem('build-version');
+  const version = "0.14.0";
+  const pcDownloadUrl = "testing123";
+  const macDownloadUrl = "testing123";
+  const linuxDownloadUrl = "testing123";
 
   return (
     <>
@@ -18,11 +22,16 @@ export default function HomePage() {
       </div>
     
       <div className={appStyles.content}>
-        <p>Terra Major is a free-to-play game about interstellar colonization. 
-          No installation or payment required. The current version v{version} is an open alpha 
-          and we are looking for early adopters.</p>
-
-        <p><Link to="/login"><button>Play Now</button></Link></p>
+        <p>Terra Major is a game about interstellar colonization. It is free to play and no payment is required. 
+          The current proof-of-concept is an open world, single player sandbox
+          where we are exploring game design, mechanics, and feedback from players.</p>
+          
+        <h3>Download v{version} and try it out:</h3>
+        <p>
+            <Link to={pcDownloadUrl}><button>PC v{version}</button></Link>
+            <Link to={macDownloadUrl}><button>Mac v{version}</button></Link>
+            <Link to={linuxDownloadUrl}><button>Linux v{version}</button></Link>
+        </p>
 
       </div>
 
@@ -35,32 +44,34 @@ export default function HomePage() {
       </div>
 
       <div className={appStyles.content}>
-        <h2>v{version} - Single player persistent sandbox</h2>
+        <p>We are starting with a single player, persistent open-world with a focus on core game play and mechanics. 
+          In the v{version} proof-of-concept, players can: </p>
         <ul>
-          <li>Players can create and manage their characters</li>
-          <li>Each character has thier own persistent sandbox</li>
-          <li>Players can mine Omnium ore and redeem at the Refinery</li>
-          <li>Players can build structures in their sandbox</li>
+          <li>Create an account and login</li>
+          <li>Create a character and explore the Terra Major planet surface</li>
+          <li>Collect and refine various types of resources such as Luxium, Soladite, and Beyon</li>
+          <li>Build structures such as an Outpost, Habitat, and Refinery in their own persistent sandbox</li>
         </ul>
-        <p><Link to="/login"><button>Start Building</button></Link></p>
+        <p>We are adding features incrementally. Interesting in providing feedback or what to see something in the game? 
+          Please join our Discord server or send us an email. </p>
+        <p><Link to="/login"><button>Join Discord Server</button></Link></p>
       </div>
 
       <div className={appStyles.hero} style={{backgroundImage:"url("+art2+")"}}>
         <div className={appStyles.heroContent}>
           <div className={appStyles.content}>
-           <h1>No limits</h1>
+           <h1>Sky is the limit</h1>
            </div>
         </div>
       </div>
 
       <div className={appStyles.content}>
-        <h2>Go over them mountains</h2>
-        <p>Each experience is dynamically generated and the entire game world is playable.</p>
-        <ul>
-          <li>No artificial boundaries</li>
-          <li>Unique experience for every player</li>
-        </ul>
-        <p><Link to="/login"><button>Explore Terra Major</button></Link></p>
+        <p>We believe in pushing the boundaries. Our mission is to disrupt how we build and plays games.
+          Our goal is to create unqiue experiences for every player by combining procedural experiences with strong, player-driven 
+          narratives. Our approach is modern, agile, and developer-led.</p>
+        <p>Interesting in providing your perspective? 
+          Please join our Discord server or send us an email. </p>
+        <p><Link to="/login"><button>Join Discord Server</button></Link></p>
       </div>
     </>
   )
