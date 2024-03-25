@@ -3,6 +3,7 @@ import appStyles from "../App/styles.module.css";
 import art0 from "./art-0.png";
 import art2 from "./art-2.png";
 import art3 from "./art-3.png";
+import styles from "./styles.module.css";
 
 export default function HomePage() {
   //const version = localStorage.getItem('build-version');
@@ -26,12 +27,12 @@ export default function HomePage() {
           The current proof-of-concept is an open world, single player sandbox
           where we are exploring game design, mechanics, and feedback from players.</p>
           
-        <h3>Download v{version} and try it out:</h3>
-        <p>
+        <h3>Realize your manifest destiny today!</h3>
+        <div className={styles.ctaContainer}>
             <Link to={pcDownloadUrl}><button>PC v{version}</button></Link>
             <Link to={macDownloadUrl}><button>Mac v{version}</button></Link>
             <Link to={linuxDownloadUrl}><button>Linux v{version}</button></Link>
-        </p>
+        </div>
 
       </div>
 

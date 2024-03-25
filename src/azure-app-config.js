@@ -38,11 +38,16 @@ export default async function setLocalSettings() {
 
   const client = await createClient();
   const settings = client.listConfigurationSettings();
-  for await (const setting of settings) {
+  if(settings.length > 0) {
+    for await (const setting of settings) {
       const { key, value } = setting;
       const existingValue = localStorage.getItem(key);
       if(!existingValue){
         localStorage.setItem(key, value);
       }
+    }
+  } else {
+    console.log("Could not connect to AZ App Config");
   }
+  
 }
