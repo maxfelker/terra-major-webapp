@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import appStyles from "../App/styles.module.css";
-import art0 from "./art-0.png";
-import art2 from "./art-2.png";
-import art3 from "./art-3.png";
+import art0 from "./262bea61-77bc-4d92-aa0e-c552f352dc60.png";
+import art3 from "./971612ff-9ef8-47c8-a929-bc2e2182e8b6.png";
+import art2 from "./954dbe84-2b8d-4a44-a87d-611db68995dc.png";
 import styles from "./styles.module.css";
 
 export default function HomePage() {
@@ -17,7 +17,7 @@ export default function HomePage() {
       <div className={appStyles.hero}  style={{backgroundImage:"url("+art0+")"}}>
         <div className={appStyles.heroContent}>
           <div className={appStyles.content}>
-           <h1>Terra Major</h1>
+           <h1>Free to play</h1>
           </div>
         </div>
       </div>
@@ -26,8 +26,7 @@ export default function HomePage() {
         <p>Terra Major is a game about interstellar colonization. It is free to play and no payment is required. 
           The current proof-of-concept is an open world, single player sandbox
           where we are exploring game design, mechanics, and feedback from players.</p>
-          
-        <h3>Realize your manifest destiny today!</h3>
+        
         <div className={styles.ctaContainer}>
             <Link to={pcDownloadUrl}><button>PC v{version}</button></Link>
             <Link to={macDownloadUrl}><button>Mac v{version}</button></Link>
