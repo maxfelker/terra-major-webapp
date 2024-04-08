@@ -12,6 +12,7 @@ import SignUpForm from '../Account/SignUpForm';
 import styles from "./styles.module.css";
 import Account from '../Account';
 import LoginForm from '../Account/LoginForm';
+import TermsPage from '../TermsPage';
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/terms" element={<TermsPage />} />
           <Route path="/sign-up" element={<SignUpForm/>} />
           <Route path="/login" element={<LoginForm/>} />
 

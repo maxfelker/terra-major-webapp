@@ -33,6 +33,8 @@ export default function HomePage() {
             <Link to={linuxDownloadUrl}><button>Linux v{version}</button></Link>
         </div>
 
+        <p>By downloading any one of these version, you are agreeing to our <Link to="/terms">terms & conditions</Link>.</p>
+
       </div>
 
       <div className={appStyles.hero} style={{backgroundImage:"url("+art3+")"}}>
