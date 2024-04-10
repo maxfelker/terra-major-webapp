@@ -11,6 +11,7 @@ export default function HomePage() {
   const pcDownloadUrl = "testing123";
   const macDownloadUrl = "testing123";
   const linuxDownloadUrl = "testing123";
+  const discordInviteUrl = "https://discord.gg/aj75rgzeBE";
 
   return (
     <>
@@ -33,14 +34,15 @@ export default function HomePage() {
             <Link to={linuxDownloadUrl}><button>Linux v{version}</button></Link>
         </div>
 
-        <p>By downloading any one of these version, you are agreeing to our <Link to="/terms">terms & conditions</Link>.</p>
+        <p>By downloading any one of these version, you are agreeing to our 
+          <Link to="/terms">terms & conditions</Link>.</p>
 
       </div>
 
       <div className={appStyles.hero} style={{backgroundImage:"url("+art3+")"}}>
         <div className={appStyles.heroContent}>
           <div className={appStyles.content}>
-            <h1>It's your world</h1>
+            <h1>It&apos;s your world</h1>
           </div>
         </div>
       </div>
@@ -56,7 +58,7 @@ export default function HomePage() {
         </ul>
         <p>We are adding features incrementally. Interesting in providing feedback or what to see something in the game? 
           Please join our Discord server or send us an email. </p>
-        <p><Link to="/login"><button>Join Discord Server</button></Link></p>
+        <p><Link to={discordInviteUrl}><button>Join Discord Server</button></Link></p>
       </div>
 
       <div className={appStyles.hero} style={{backgroundImage:"url("+art2+")"}}>
@@ -73,7 +75,7 @@ export default function HomePage() {
           narratives. Our approach is modern, agile, and developer-led.</p>
         <p>Interesting in providing your perspective? 
           Please join our Discord server or send us an email. </p>
-        <p><Link to="/login"><button>Join Discord Server</button></Link></p>
+        <p><Link to={discordInviteUrl}><button>Join Discord Server</button></Link></p>
       </div>
     </>
   )
