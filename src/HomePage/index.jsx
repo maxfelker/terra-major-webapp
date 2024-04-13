@@ -24,9 +24,9 @@ export default function HomePage() {
       </div>
     
       <div className={appStyles.content}>
-        <p>Terra Major is a game about interstellar colonization. It is free to play and no payment is required. 
-          The current proof-of-concept is an open world, single player sandbox
-          where we are exploring game design, mechanics, and feedback from players.</p>
+        <p>Terra Major is an interstellar colonization game. It is free to play and no payment is required. 
+          The current proof-of-concept is a single player sandbox
+          where we are exploring game design, mechanics, and feedback.</p>
         
         <div className={styles.ctaContainer}>
             <Link to={pcDownloadUrl}><button>PC v{version}</button></Link>
@@ -35,7 +35,7 @@ export default function HomePage() {
         </div>
 
         <p>By downloading any one of these version, you are agreeing to our 
-          <Link to="/terms">terms & conditions</Link>.</p>
+         {" "} <Link to="/terms">terms & conditions</Link>.</p>
 
       </div>
 
@@ -48,8 +48,8 @@ export default function HomePage() {
       </div>
 
       <div className={appStyles.content}>
-        <p>We are starting with a single player, persistent open-world with a focus on core game play and mechanics. 
-          In the v{version} proof-of-concept, players can: </p>
+        <p>The v{version} proof-of-concept is single player experience set in an arrid desert flatland on Terra Major VII. 
+        In this demo, we are focusing on core mechanics where players can: </p>
         <ul>
           <li>Create an account and login</li>
           <li>Create a character and explore the Terra Major planet surface</li>
