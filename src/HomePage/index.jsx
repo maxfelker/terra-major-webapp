@@ -6,7 +6,8 @@ import art2 from "./954dbe84-2b8d-4a44-a87d-611db68995dc.png";
 import styles from "./styles.module.css";
 
 export default function HomePage() {
-  const downloadUrl = localStorage.getItem('download-url');
+  //const downloadUrl = localStorage.getItem('download-url');
+  const downloadUrl = "https://terramajornonprod.blob.core.windows.net/builds";
   const version = "0.14.6";
   const pcDownloadUrl = `${downloadUrl}/${version}_PC.zip`;
   const macDownloadUrl = `${downloadUrl}/${version}_OSX.zip`;
