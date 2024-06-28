@@ -17,8 +17,13 @@ export default async function setLocalSettings() {
     VITE_API_BASE_URL,
     VITE_BUILD_BASE_URL,
     VITE_BUILD_VERSION,
-    VITE_CHARACTER_FBX_URL
+    VITE_CHARACTER_FBX_URL,
+    VITE_DOWNLOAD_URL
   } = import.meta.env;
+
+  if(isDefined(VITE_DOWNLOAD_URL)) {
+    localStorage.setItem('download-url', VITE_DOWNLOAD_URL);
+  }
 
   if(isDefined(VITE_API_BASE_URL)) {
     localStorage.setItem('api-base-url', VITE_API_BASE_URL);
@@ -38,11 +43,16 @@ export default async function setLocalSettings() {
 
   const client = await createClient();
   const settings = client.listConfigurationSettings();
-  for await (const setting of settings) {
+  if(settings.length > 0) {
+    for await (const setting of settings) {
       const { key, value } = setting;
       const existingValue = localStorage.getItem(key);
       if(!existingValue){
         localStorage.setItem(key, value);
       }
+    }
+  } else {
+    console.log("Could not connect to AZ App Config");
   }
+  
 }

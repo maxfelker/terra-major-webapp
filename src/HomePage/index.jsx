@@ -1,66 +1,81 @@
 import { Link } from "react-router-dom";
 import appStyles from "../App/styles.module.css";
-import art0 from "./art-0.png";
-import art2 from "./art-2.png";
-import art3 from "./art-3.png";
+import art0 from "./262bea61-77bc-4d92-aa0e-c552f352dc60.png";
+import art3 from "./971612ff-9ef8-47c8-a929-bc2e2182e8b6.png";
+import art2 from "./954dbe84-2b8d-4a44-a87d-611db68995dc.png";
+import styles from "./styles.module.css";
 
 export default function HomePage() {
-  const version = localStorage.getItem('build-version');
+  const downloadUrl = localStorage.getItem('download-url');
+  const version = "0.14.6";
+  const pcDownloadUrl = `${downloadUrl}/${version}_PC.zip`;
+  const macDownloadUrl = `${downloadUrl}/${version}_OSX.zip`;
+  const linuxDownloadUrl = `${downloadUrl}/${version}_Linux.zip`;
+  const discordInviteUrl = "https://discord.gg/aj75rgzeBE";
 
   return (
     <>
       <div className={appStyles.hero}  style={{backgroundImage:"url("+art0+")"}}>
         <div className={appStyles.heroContent}>
           <div className={appStyles.content}>
-           <h1>Terra Major</h1>
+           <h1>Free to play</h1>
           </div>
         </div>
       </div>
     
       <div className={appStyles.content}>
-        <p>Terra Major is a free-to-play game about interstellar colonization. 
-          No installation or payment required. The current version v{version} is an open alpha 
-          and we are looking for early adopters.</p>
+        <p>Terra Major is an interstellar experience. It is a free to play game and no payment is required. 
+          The current proof-of-concept is a single player sandbox
+          where we are exploring game design, mechanics, and feedback.</p>
+        
+        <div className={styles.ctaContainer}>
+            <Link to={pcDownloadUrl}><button>PC v{version}</button></Link>
+            <Link to={macDownloadUrl}><button>Mac v{version}</button></Link>
+            <Link to={linuxDownloadUrl}><button>Linux v{version}</button></Link>
+        </div>
 
-        <p><Link to="/login"><button>Play Now</button></Link></p>
+        <p>By downloading any one of these version, you are agreeing to our 
+         {" "} <Link to="/terms">terms & conditions</Link>.</p>
 
       </div>
 
       <div className={appStyles.hero} style={{backgroundImage:"url("+art3+")"}}>
         <div className={appStyles.heroContent}>
           <div className={appStyles.content}>
-            <h1>It's your world</h1>
+            <h1>It&apos;s your world</h1>
           </div>
         </div>
       </div>
 
       <div className={appStyles.content}>
-        <h2>v{version} - Single player persistent sandbox</h2>
+        <p>The v{version} proof-of-concept is single player experience set in an arrid desert flatland on Terra Major VII. 
+        In this demo, we are focusing on core mechanics where players can: </p>
         <ul>
-          <li>Players can create and manage their characters</li>
-          <li>Each character has thier own persistent sandbox</li>
-          <li>Players can mine Omnium ore and redeem at the Refinery</li>
-          <li>Players can build structures in their sandbox</li>
+          <li>Create an account and login</li>
+          <li>Create a character and explore the Terra Major planet surface</li>
+          <li>Collect and refine various types of resources such as Luxium, Soladite, and Beyon</li>
+          <li>Build structures such as an Outpost, Habitat, and Refinery in their own persistent sandbox</li>
         </ul>
-        <p><Link to="/login"><button>Start Building</button></Link></p>
+        <p>We are adding features incrementally. Interesting in providing feedback or what to see something in the game? 
+          Please join our Discord server or send us an email. </p>
+        <p><Link to={discordInviteUrl}><button>Join Discord Server</button></Link></p>
       </div>
 
       <div className={appStyles.hero} style={{backgroundImage:"url("+art2+")"}}>
         <div className={appStyles.heroContent}>
           <div className={appStyles.content}>
-           <h1>No limits</h1>
+           <h1>Sky is the limit</h1>
            </div>
         </div>
       </div>
 
       <div className={appStyles.content}>
-        <h2>Go over them mountains</h2>
-        <p>Each experience is dynamically generated and the entire game world is playable.</p>
-        <ul>
-          <li>No artificial boundaries</li>
-          <li>Unique experience for every player</li>
-        </ul>
-        <p><Link to="/login"><button>Explore Terra Major</button></Link></p>
+        <p>We believe in pushing the boundaries. Our mission is to disrupt how we build and plays games.
+          Our goal is to create unqiue experiences for every player by combining procedural experiences with strong, player-driven 
+          narratives. Our approach is modern, agile, and developer-led.</p>
+        <p>Interesting in providing your perspective? 
+          Please join our Discord server or send us an email. </p>
+        <p><Link to={discordInviteUrl}><button>Join Discord Server</button></Link></p>
       </div>
     </>
   )
