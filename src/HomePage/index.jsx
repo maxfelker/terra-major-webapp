@@ -24,7 +24,7 @@ export default function HomePage() {
       </div>
     
       <div className={appStyles.content}>
-        <p>Terra Major is an interstellar colonization game. It is free to play and no payment is required. 
+        <p>Terra Major is an interstellar experience. It is a free to play game and no payment is required. 
           The current proof-of-concept is a single player sandbox
           where we are exploring game design, mechanics, and feedback.</p>
         
