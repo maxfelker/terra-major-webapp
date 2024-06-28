@@ -6,11 +6,11 @@ import art2 from "./954dbe84-2b8d-4a44-a87d-611db68995dc.png";
 import styles from "./styles.module.css";
 
 export default function HomePage() {
-  //const version = localStorage.getItem('build-version');
-  const version = "0.14.0";
-  const pcDownloadUrl = "testing123";
-  const macDownloadUrl = "testing123";
-  const linuxDownloadUrl = "testing123";
+  const downloadUrl = localStorage.getItem('download-url');
+  const version = "0.14.6";
+  const pcDownloadUrl = `${downloadUrl}/${version}_PC.zip`;
+  const macDownloadUrl = `${downloadUrl}/${version}_OSX.zip`;
+  const linuxDownloadUrl = `${downloadUrl}/${version}_Linux.zip`;
   const discordInviteUrl = "https://discord.gg/aj75rgzeBE";
 
   return (

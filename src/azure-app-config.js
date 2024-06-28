@@ -17,8 +17,13 @@ export default async function setLocalSettings() {
     VITE_API_BASE_URL,
     VITE_BUILD_BASE_URL,
     VITE_BUILD_VERSION,
-    VITE_CHARACTER_FBX_URL
+    VITE_CHARACTER_FBX_URL,
+    VITE_DOWNLOAD_URL
   } = import.meta.env;
+
+  if(isDefined(VITE_DOWNLOAD_URL)) {
+    localStorage.setItem('download-url', VITE_DOWNLOAD_URL);
+  }
 
   if(isDefined(VITE_API_BASE_URL)) {
     localStorage.setItem('api-base-url', VITE_API_BASE_URL);
