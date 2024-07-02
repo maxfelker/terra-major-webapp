@@ -8,10 +8,10 @@ import styles from "./styles.module.css";
 export default function HomePage() {
   //const downloadUrl = localStorage.getItem('download-url');
   const downloadUrl = "https://terramajornonprod.blob.core.windows.net/builds";
-  const version = "0.14.6";
-  const pcDownloadUrl = `${downloadUrl}/${version}_PC.zip`;
-  const macDownloadUrl = `${downloadUrl}/${version}_OSX.zip`;
-  const linuxDownloadUrl = `${downloadUrl}/${version}_Linux.zip`;
+  const version = "0.14.9";
+  const pcDownloadUrl = `${downloadUrl}/${version}_PC.rar`;
+  const macDownloadUrl = `${downloadUrl}/${version}_OSX.rar`;
+  const linuxDownloadUrl = `${downloadUrl}/${version}_Linux.rar`;
   const discordInviteUrl = "https://discord.gg/aj75rgzeBE";
 
   return (
@@ -25,7 +25,7 @@ export default function HomePage() {
       </div>
     
       <div className={appStyles.content}>
-        <p>Terra Major is an interstellar experience. It is a free to play game and no payment is required. 
+        <p>Terra Major is an interstellar experience which is a free to play game and no payment is required. 
           The current proof-of-concept is a single player sandbox
           where we are exploring game design, mechanics, and feedback.</p>
         
@@ -35,7 +35,7 @@ export default function HomePage() {
             <Link to={linuxDownloadUrl}><button>Linux v{version}</button></Link>
         </div>
 
-        <p>By downloading any one of these version, you are agreeing to our 
+        <p>The build size is ~1.2GB compressed and will download directly. By downloading any one of these version, you are agreeing to our 
          {" "} <Link to="/terms">terms & conditions</Link>.</p>
 
       </div>
