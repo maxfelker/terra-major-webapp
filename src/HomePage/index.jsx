@@ -9,9 +9,9 @@ export default function HomePage() {
   //const downloadUrl = localStorage.getItem('download-url');
   const downloadUrl = "https://terramajornonprod.blob.core.windows.net/builds";
   const version = "0.14.9";
-  const pcDownloadUrl = `${downloadUrl}/${version}_PC.rar`;
-  const macDownloadUrl = `${downloadUrl}/${version}_OSX.rar`;
-  const linuxDownloadUrl = `${downloadUrl}/${version}_Linux.rar`;
+  const pcDownloadUrl = `${downloadUrl}/${version}_PC.zip`;
+  const macDownloadUrl = `${downloadUrl}/${version}_OSX.zip`;
+  const linuxDownloadUrl = `${downloadUrl}/${version}_Linux.zip`;
   const discordInviteUrl = "https://discord.gg/aj75rgzeBE";
 
   return (
@@ -35,7 +35,7 @@ export default function HomePage() {
             <Link to={linuxDownloadUrl}><button>Linux v{version}</button></Link>
         </div>
 
-        <p>The build size is ~1.2GB compressed and will download directly. By downloading any one of these version, you are agreeing to our 
+        <p>The build size is ~1.3GB compressed (2.6GB total) and will download directly. By downloading any one of these version, you are agreeing to our 
          {" "} <Link to="/terms">terms & conditions</Link>.</p>
 
       </div>
