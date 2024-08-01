@@ -8,7 +8,7 @@ const spaRoute = {
   path: '/{param*}',
   handler: {
     directory: {
-      path: path.resolve('dist'),
+      path: path.resolve('/app/dist'),
       index: ['index.html'],
     },
   },
@@ -18,7 +18,6 @@ const configRoute = {
     method: 'GET',
     path: '/config',
     handler: (request, h) => {
-
         const config = {
             VITE_API_BASE_URL: process.env.VITE_API_BASE_URL,
             VITE_BUILD_BASE_URL: process.env.VITE_BUILD_BASE_URL,
@@ -28,16 +27,18 @@ const configRoute = {
             VITE_DISCORD_URL: process.env.VITE_DISCORD_URL
           };
   
-      return h.response(config).code(200);
+        return h.response(config).code(200);
     }
 };
 
 async function init() {
   dotenv.config();
 
+  const { PORT } = process.env;
+
   const server = Hapi.server({
-    port: 3000,
-    host: 'localhost',
+    port: PORT || 80,
+    host: '0.0.0.0',
   });
 
   await server.register(Inert);

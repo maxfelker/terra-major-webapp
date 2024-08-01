@@ -12,9 +12,10 @@ RUN npm run build
 
 # Production stage
 FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
-COPY default.conf /etc/nginx/conf.d/default.conf
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
+RUN apk add --update nodejs
+COPY --from=build /app/package.json /app/package.json
+COPY --from=build /app/dist /app/dist
+COPY --from=build /app/node_modules /app/node_modules
+COPY server/ /app/server
 EXPOSE 80
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT node /app/server/index.js

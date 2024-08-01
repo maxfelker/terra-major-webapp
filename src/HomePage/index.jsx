@@ -18,14 +18,15 @@ export default function HomePage() {
       <div className={appStyles.hero}  style={{backgroundImage:"url("+art0+")"}}>
         <div className={appStyles.heroContent}>
           <div className={appStyles.content}>
-           <h1>Free to DEEK</h1>
+           <h1>Free to Play</h1>
           </div>
         </div>
       </div>
     
       <div className={appStyles.content}>
-        <p>Terra Major is an interstellar experience which is a free to play game and no payment is required. 
-          The current proof-of-concept is a single player sandbox
+        <p>Terra Major is an open world game set in the distant future. Humankind has expanded across the universe in search of land and wealth. 
+        </p>
+        <p>The game free to play and no payment is required. Our current proof-of-concept is a single player sandbox
           where we are exploring game design, mechanics, and feedback.</p>
         
         <div className={styles.ctaContainer}>
@@ -48,13 +49,13 @@ export default function HomePage() {
       </div>
 
       <div className={appStyles.content}>
-        <p>The v{buildVersion} proof-of-concept is single player experience set in an arrid desert flatland on Terra Major VII. 
-        In this demo, we are focusing on core mechanics where players can: </p>
+        <p>The v{buildVersion} proof-of-concept is single player demo set in an arrid desert flatland on Terra Major VIII. 
+        In this short play through, we are focusing on core mechanics where players can: </p>
         <ul>
           <li>Create an account and login</li>
           <li>Create a character and explore the Terra Major planet surface</li>
-          <li>Collect and refine various types of resources such as Luxium, Soladite, and Beyon</li>
-          <li>Build structures such as an Outpost, Habitat, and Refinery in their own persistent sandbox</li>
+          <li>Collect and refine various types of resources such as Cosmocite, Luxium, and Beyon</li>
+          <li>Build structures such as an Outpost, Habitat, and Refinery in a persistent sandbox</li>
         </ul>
         <p>We are adding features incrementally. Interesting in providing feedback or what to see something in the game? 
           Please join our Discord server or send us an email. </p>
@@ -70,8 +71,8 @@ export default function HomePage() {
       </div>
 
       <div className={appStyles.content}>
-        <p>We believe in pushing the boundaries. Our mission is to disrupt how we build and plays games.
-          Our goal is to create unqiue experiences for every player by combining procedural experiences with strong, player-driven 
+        <p>We believe in pushing the boundaries. Our mission is to change how we build and plays games. 
+          Our goal is to create unqiue experiences for every player by using procedural experiences with strong, player-driven 
           narratives. Our approach is modern, agile, and developer-led.</p>
         <p>Interesting in providing your perspective? 
           Please join our Discord server or send us an email. </p>
