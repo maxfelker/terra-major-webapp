@@ -6,20 +6,19 @@ import art2 from "./954dbe84-2b8d-4a44-a87d-611db68995dc.png";
 import styles from "./styles.module.css";
 
 export default function HomePage() {
-  //const downloadUrl = localStorage.getItem('download-url');
-  const downloadUrl = "https://terramajornonprod.blob.core.windows.net/builds";
-  const version = "0.14.9";
-  const pcDownloadUrl = `${downloadUrl}/${version}_PC.zip`;
-  const macDownloadUrl = `${downloadUrl}/${version}_OSX.zip`;
-  const linuxDownloadUrl = `${downloadUrl}/${version}_Linux.zip`;
-  const discordInviteUrl = "https://discord.gg/aj75rgzeBE";
+  const downloadUrl = localStorage.getItem('downloadUrl');
+  const buildVersion = localStorage.getItem('buildVersion');
+  const pcDownloadUrl = `${downloadUrl}/${buildVersion}_PC.zip`;
+  const macDownloadUrl = `${downloadUrl}/${buildVersion}_OSX.zip`;
+  const linuxDownloadUrl = `${downloadUrl}/${buildVersion}_Linux.zip`;
+  const discordInviteUrl = localStorage.getItem('discordUrl');
 
   return (
     <>
       <div className={appStyles.hero}  style={{backgroundImage:"url("+art0+")"}}>
         <div className={appStyles.heroContent}>
           <div className={appStyles.content}>
-           <h1>Free to play</h1>
+           <h1>Free to DEEK</h1>
           </div>
         </div>
       </div>
@@ -30,9 +29,9 @@ export default function HomePage() {
           where we are exploring game design, mechanics, and feedback.</p>
         
         <div className={styles.ctaContainer}>
-            <Link to={pcDownloadUrl}><button>PC v{version}</button></Link>
-            <Link to={macDownloadUrl}><button>Mac v{version}</button></Link>
-            <Link to={linuxDownloadUrl}><button>Linux v{version}</button></Link>
+            <Link to={pcDownloadUrl}><button>PC v{buildVersion}</button></Link>
+            <Link to={macDownloadUrl}><button>Mac v{buildVersion}</button></Link>
+            <Link to={linuxDownloadUrl}><button>Linux v{buildVersion}</button></Link>
         </div>
 
         <p>The build size is ~1.3GB compressed (2.6GB total) and will download directly. By downloading any one of these version, you are agreeing to our 
@@ -49,7 +48,7 @@ export default function HomePage() {
       </div>
 
       <div className={appStyles.content}>
-        <p>The v{version} proof-of-concept is single player experience set in an arrid desert flatland on Terra Major VII. 
+        <p>The v{buildVersion} proof-of-concept is single player experience set in an arrid desert flatland on Terra Major VII. 
         In this demo, we are focusing on core mechanics where players can: </p>
         <ul>
           <li>Create an account and login</li>
