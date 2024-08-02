@@ -1,3 +1,9 @@
+/**
+ * This file manages configuration variables for the app and store them in localStorage. 
+ * In dev mode, it retrieves environment variables from Vite variable imported via .env file.
+ * In production mode, it retrieves environment variables from the local middleware server.
+ */
+
 function isDefined(param) {
 
   return typeof param !== 'undefined';
@@ -5,7 +11,6 @@ function isDefined(param) {
 
 
 function getViteVars() {
-  console.log('Using local .env vite variables');
 
   return {
     VITE_API_BASE_URL: import.meta.env.VITE_API_BASE_URL,
@@ -19,7 +24,7 @@ function getViteVars() {
 
 async function getNodeVars() {
   const response = await fetch(`/mw/config`);
-  
+
   return await response.json();
 }
 
@@ -32,7 +37,6 @@ async function getVars() {
 }
 
 export async function setLocalStorageConfigs() {
-
   const {
     VITE_API_BASE_URL,
     VITE_BUILD_BASE_URL,
