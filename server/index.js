@@ -2,8 +2,9 @@ import Hapi from '@hapi/hapi';
 import Inert from '@hapi/inert';
 import path from 'path';
 import dotenv from 'dotenv';
+import fs from 'fs';
 
-const allowedOrigins = ['http://localhost:5173', 'http://localhost'];
+const { VITE_HOST } = process.env;
 
 const spaRoute = {
   method: 'GET',
@@ -18,7 +19,7 @@ const spaRoute = {
 
 const configRoute = {
     method: 'GET',
-    path: '/config',
+    path: '/mw/config',
     handler: (request, h) => {
         const config = {
             VITE_API_BASE_URL: process.env.VITE_API_BASE_URL,
@@ -33,10 +34,17 @@ const configRoute = {
     },
     options: {
         cors: {
-            origin: allowedOrigins
+            origin: [ VITE_HOST ]
         }
     }
 };
+
+function getServerVersion() {
+  const packageJsonPath = path.resolve('/app/package.json');
+  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+
+  return packageJson.version;
+}
 
 async function init() {
   dotenv.config();
@@ -57,8 +65,11 @@ async function init() {
 
   server.route(routes);
 
+  const version = getServerVersion();
+  const startMessage = `Terra Major UI v${version} running on ${server.info.uri}`;
+
   await server.start();
-  console.log('Server running on %s', server.info.uri);
+  console.log(startMessage);
 }
 
 process.on('unhandledRejection', (err) => {

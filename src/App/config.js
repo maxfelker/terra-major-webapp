@@ -18,11 +18,21 @@ function getViteVars() {
 }
 
 async function getNodeVars() {
-  const response = await fetch('/config');
+  const response = await fetch(`/mw/config`);
+  
   return await response.json();
 }
 
+async function getVars() {
+  if(import.meta.env && import.meta.env.DEV) {
+    return getViteVars();
+  }
+
+  return await getNodeVars();
+}
+
 export async function setLocalStorageConfigs() {
+
   const {
     VITE_API_BASE_URL,
     VITE_BUILD_BASE_URL,
@@ -30,7 +40,7 @@ export async function setLocalStorageConfigs() {
     VITE_CHARACTER_FBX_URL,
     VITE_DOWNLOAD_URL,
     VITE_DISCORD_URL
-  } = await getNodeVars();
+  } = await getVars();
   
   localStorage.clear();
 
