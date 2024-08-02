@@ -3,6 +3,8 @@ import Inert from '@hapi/inert';
 import path from 'path';
 import dotenv from 'dotenv';
 
+const allowedOrigins = ['http://localhost:5173', 'http://localhost'];
+
 const spaRoute = {
   method: 'GET',
   path: '/{param*}',
@@ -25,9 +27,14 @@ const configRoute = {
             VITE_CHARACTER_FBX_URL: process.env.VITE_CHARACTER_FBX_URL,
             VITE_DOWNLOAD_URL: process.env.VITE_DOWNLOAD_URL,
             VITE_DISCORD_URL: process.env.VITE_DISCORD_URL
-          };
+        };
   
         return h.response(config).code(200);
+    },
+    options: {
+        cors: {
+            origin: allowedOrigins
+        }
     }
 };
 

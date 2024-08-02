@@ -3,39 +3,23 @@ function isDefined(param) {
   return typeof param !== 'undefined';
 }
 
+
 function getViteVars() {
   console.log('Using local .env vite variables');
-  const {
-    VITE_API_BASE_URL,
-    VITE_BUILD_BASE_URL,
-    VITE_BUILD_VERSION,
-    VITE_CHARACTER_FBX_URL,
-    VITE_DOWNLOAD_URL,
-    VITE_DISCORD_URL
-  } = import.meta.env;
-  
+
   return {
-    VITE_API_BASE_URL,
-    VITE_BUILD_BASE_URL,
-    VITE_BUILD_VERSION,
-    VITE_CHARACTER_FBX_URL,
-    VITE_DOWNLOAD_URL,
-    VITE_DISCORD_URL
+    VITE_API_BASE_URL: import.meta.env.VITE_API_BASE_URL,
+    VITE_BUILD_BASE_URL: import.meta.env.VITE_BUILD_BASE_URL,
+    VITE_BUILD_VERSION: import.meta.env.VITE_BUILD_VERSION,
+    VITE_CHARACTER_FBX_URL: import.meta.env.VITE_CHARACTER_FBX_URL,
+    VITE_DOWNLOAD_URL: import.meta.env.VITE_DOWNLOAD_URL,
+    VITE_DISCORD_URL: import.meta.env.VITE_DISCORD_URL
   };
 }
 
 async function getNodeVars() {
-  console.log('Retrieveing node .env variables');
   const response = await fetch('/config');
-  console.log('response', response);
   return await response.json();
-}
-
-function determineConfig(){
-  if(isDefined(import.meta.env)) {
-    return getViteVars();
-  }
-  return getNodeVars();
 }
 
 export async function setLocalStorageConfigs() {
@@ -46,7 +30,7 @@ export async function setLocalStorageConfigs() {
     VITE_CHARACTER_FBX_URL,
     VITE_DOWNLOAD_URL,
     VITE_DISCORD_URL
-  } = determineConfig();
+  } = await getNodeVars();
   
   localStorage.clear();
 
