@@ -6,13 +6,13 @@ import art2 from "./954dbe84-2b8d-4a44-a87d-611db68995dc.png";
 import styles from "./styles.module.css";
 
 export default function HomePage() {
+  const discordUrl = localStorage.getItem('discordUrl');
   const downloadUrl = localStorage.getItem('downloadUrl');
   const buildVersion = localStorage.getItem('buildVersion');
   const pcDownloadUrl = `${downloadUrl}/${buildVersion}_PC.zip`;
   const macDownloadUrl = `${downloadUrl}/${buildVersion}_OSX.zip`;
   const linuxDownloadUrl = `${downloadUrl}/${buildVersion}_Linux.zip`;
-  const discordInviteUrl = localStorage.getItem('discordUrl');
-
+  
   return (
     <>
       <div className={appStyles.hero}  style={{backgroundImage:"url("+art0+")"}}>
@@ -59,7 +59,7 @@ export default function HomePage() {
         </ul>
         <p>We are adding features incrementally. Interesting in providing feedback or what to see something in the game? 
           Please join our Discord server or send us an email. </p>
-        <p><Link to={discordInviteUrl}><button>Join Discord Server</button></Link></p>
+        <p><Link to={discordUrl}><button>Join Discord Server</button></Link></p>
       </div>
 
       <div className={appStyles.hero} style={{backgroundImage:"url("+art2+")"}}>
@@ -76,7 +76,7 @@ export default function HomePage() {
           narratives. Our approach is modern, agile, and developer-led.</p>
         <p>Interesting in providing your perspective? 
           Please join our Discord server or send us an email. </p>
-        <p><Link to={discordInviteUrl}><button>Join Discord Server</button></Link></p>
+        <p><Link to={discordUrl}><button>Join Discord Server</button></Link></p>
       </div>
     </>
   )
