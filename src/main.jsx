@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import setLocalSettings from './azure-app-config';
+import { setLocalStorageConfigs } from './App/config';
 
 async function render() {
-  await setLocalSettings();
+  await setLocalStorageConfigs();
 
   ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
