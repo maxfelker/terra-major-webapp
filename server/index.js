@@ -3,8 +3,8 @@ import Inert from '@hapi/inert';
 import path from 'path';
 import dotenv from 'dotenv';
 import fs from 'fs';
-import spaRoute from './routes/spa';
-import configRoute from './routes/config';
+import spaRoute from './routes/spa.js';
+import configRoute from './routes/config.js';
 
 function getServerVersion() {
   const packageJsonPath = path.resolve('/app/package.json');
