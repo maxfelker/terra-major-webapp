@@ -3,8 +3,8 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 import styles from './styles.module.css';
 
 function generatePath(suffix) {
-  const version = localStorage.getItem('build-version');
-  const buildDir = localStorage.getItem('build-base-url');
+  const version = localStorage.getItem('buildVersion');
+  const buildDir = localStorage.getItem('buildBaseUrl');
 
   return `${buildDir}/${version}/${version}.${suffix}`;
 }
