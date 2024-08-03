@@ -11,7 +11,7 @@ RUN npm ci
 RUN npm run build
 
 # Production stage
-FROM nginx:alpine
+FROM alpine
 RUN apk add --update nodejs
 COPY --from=build /app/package.json /app/package.json
 COPY --from=build /app/dist /app/dist

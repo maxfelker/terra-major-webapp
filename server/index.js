@@ -3,41 +3,8 @@ import Inert from '@hapi/inert';
 import path from 'path';
 import dotenv from 'dotenv';
 import fs from 'fs';
-
-const { VITE_HOST } = process.env;
-
-const spaRoute = {
-  method: 'GET',
-  path: '/{param*}',
-  handler: {
-    directory: {
-      path: path.resolve('/app/dist'),
-      index: ['index.html'],
-    },
-  },
-};
-
-const configRoute = {
-    method: 'GET',
-    path: '/mw/config',
-    handler: (request, h) => {
-        const config = {
-            VITE_API_BASE_URL: process.env.VITE_API_BASE_URL,
-            VITE_BUILD_BASE_URL: process.env.VITE_BUILD_BASE_URL,
-            VITE_BUILD_VERSION: process.env.VITE_BUILD_VERSION,
-            VITE_CHARACTER_FBX_URL: process.env.VITE_CHARACTER_FBX_URL,
-            VITE_DOWNLOAD_URL: process.env.VITE_DOWNLOAD_URL,
-            VITE_DISCORD_URL: process.env.VITE_DISCORD_URL
-        };
-  
-        return h.response(config).code(200);
-    },
-    options: {
-        cors: {
-            origin: [ VITE_HOST ]
-        }
-    }
-};
+import spaRoute from './routes/spa';
+import configRoute from './routes/config';
 
 function getServerVersion() {
   const packageJsonPath = path.resolve('/app/package.json');
