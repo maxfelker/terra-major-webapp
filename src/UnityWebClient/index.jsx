@@ -48,7 +48,7 @@ export default function UnityWebClient() {
     const initGame = async () => {
       const token = sessionStorage.getItem('unity-client-token');
       if(isLoaded && token) {
-        const baseUrl = localStorage.getItem('api-base-url');
+        const baseUrl = localStorage.getItem('apiBaseUrl');
         const clientConfig = {
           baseUrl,
           token
