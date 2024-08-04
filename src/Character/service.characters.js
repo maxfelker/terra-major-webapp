@@ -1,5 +1,5 @@
 function apiUrl() {
-  return localStorage.getItem('api-base-url');
+  return localStorage.getItem('apiBaseUrl');
 }
 
 function baseUrl() {

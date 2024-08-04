@@ -1,5 +1,5 @@
 function createUrl() {
-  const apiUrl = localStorage.getItem('api-base-url');
+  const apiUrl = localStorage.getItem('apiBaseUrl');
   return `${apiUrl}/sandboxes`;
 }
 

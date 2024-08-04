@@ -3,8 +3,8 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 import styles from './styles.module.css';
 
 function generatePath(suffix) {
-  const version = localStorage.getItem('build-version');
-  const buildDir = localStorage.getItem('build-base-url');
+  const version = localStorage.getItem('buildVersion');
+  const buildDir = localStorage.getItem('buildBaseUrl');
 
   return `${buildDir}/${version}/${version}.${suffix}`;
 }
@@ -48,7 +48,7 @@ export default function UnityWebClient() {
     const initGame = async () => {
       const token = sessionStorage.getItem('unity-client-token');
       if(isLoaded && token) {
-        const baseUrl = localStorage.getItem('api-base-url');
+        const baseUrl = localStorage.getItem('apiBaseUrl');
         const clientConfig = {
           baseUrl,
           token
