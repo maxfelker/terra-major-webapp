@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import CharacterForm from '../CharacterForm';
 import { retrieveCharacter, updateCharacter, archiveCharacter } from '../service.characters';
-import CharacterPreview from '../Preview';
+//import CharacterPreview from '../Preview';
 
 export default function CharacterDetail() {
   const { id } = useParams();
@@ -54,7 +54,7 @@ export default function CharacterDetail() {
 
     {character &&
       <div  style={{margin:'4rem auto', maxWidth:'600px'}}>
-        <CharacterPreview />
+        {/*<CharacterPreview />*/}
         <CharacterForm
           initialCharacter={character}
           submitHandler={handleSubmit}
