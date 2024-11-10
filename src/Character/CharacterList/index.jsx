@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getMyCharacters } from '../service.characters';
 import styles from './styles.module.css';
 import { createUnityClientToken } from '../../UnityWebClient/service.unity-client';
-import CharacterPreview from "../Preview";
+//import CharacterPreview from "../Preview";
 
 export default function CharacterList() {
     const [characters, setCharacters] = useState([]);
@@ -47,7 +47,7 @@ export default function CharacterList() {
                         <div className={styles.buttonContainer}>
                             <p><Link to="/characters/new">Create New Colonist</Link></p>
                         </div>
-                        <CharacterPreview />
+                        {/*<CharacterPreview />*/}
                     </div>
             </div>
             </>

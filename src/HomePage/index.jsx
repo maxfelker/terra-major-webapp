@@ -27,7 +27,7 @@ export default function HomePage() {
         <p>Terra Major is an open world game set in the distant future. Humankind has expanded across the universe in search of land and wealth. 
         </p>
         <p>The game free to play and no payment is required. Our current proof-of-concept is a single player sandbox
-          where we are exploring game design, mechanics, and feedback.</p>
+          where we are exploring game play and feedback.</p>
         
         <div className={styles.ctaContainer}>
             <Link to={pcDownloadUrl}><button>PC v{buildVersion}</button></Link>
@@ -35,7 +35,7 @@ export default function HomePage() {
             <Link to={linuxDownloadUrl}><button>Linux v{buildVersion}</button></Link>
         </div>
 
-        <p>The build size is ~1.3GB compressed (2.6GB total) and will download directly. By downloading any one of these version, you are agreeing to our 
+        <p>The build size is ~850MB compressed (1.65GB uncompressed) and will download directly. By downloading any one of these version, you are agreeing to our 
          {" "} <Link to="/terms">terms & conditions</Link>.</p>
 
       </div>
@@ -49,13 +49,12 @@ export default function HomePage() {
       </div>
 
       <div className={appStyles.content}>
-        <p>The v{buildVersion} proof-of-concept is single player demo set in an arrid desert flatland on Terra Major VIII. 
+        <p>The v{buildVersion} proof-of-concept is single player demo set in an arrid desert on Terra Major VIII. 
         In this short play through, we are focusing on core mechanics where players can: </p>
         <ul>
           <li>Create an account and login</li>
           <li>Create a character and explore the Terra Major planet surface</li>
           <li>Collect and refine various types of resources such as Cosmocite, Luxium, and Beyon</li>
-          <li>Build structures such as an Outpost, Habitat, and Refinery in a persistent sandbox</li>
         </ul>
         <p>We are adding features incrementally. Interesting in providing feedback or what to see something in the game? 
           Please join our Discord server or send us an email. </p>
